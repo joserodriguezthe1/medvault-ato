@@ -1,0 +1,94 @@
+{
+  "plan-of-action-and-milestones": {
+    "uuid": "p0a40000-0000-0000-0000-000000000001",
+    "metadata": {
+      "title": "MedVault Plan of Action and Milestones",
+      "last-modified": "2026-05-16T00:00:00Z",
+      "version": "0.1.0",
+      "oscal-version": "1.1.2"
+    },
+    "system-id": {
+      "id": "medvault-prod",
+      "identifier-type": "https://fedramp.gov"
+    },
+    "poam-items": [
+      {
+        "uuid": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaa0001",
+        "title": "POAM-001: KMS key has no explicit key policy",
+        "description": "Checkov CKV2_AWS_64. SC-13 evidence requires explicit least-privilege key policy.",
+        "props": [
+          {"name": "severity", "value": "high"},
+          {"name": "control-id", "value": "sc-13"},
+          {"name": "weakness-source", "value": "checkov:CKV2_AWS_64"},
+          {"name": "scheduled-completion-date", "value": "2026-06-15"},
+          {"name": "status", "value": "open"}
+        ],
+        "remarks": "Owner: ENG-LEAD"
+      },
+      {
+        "uuid": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaa0002",
+        "title": "POAM-002: Access log bucket lacks versioning",
+        "description": "Checkov CKV_AWS_21. Versioning protects audit log integrity (AU-9).",
+        "props": [
+          {"name": "severity", "value": "high"},
+          {"name": "control-id", "value": "au-9"},
+          {"name": "weakness-source", "value": "checkov:CKV_AWS_21"},
+          {"name": "scheduled-completion-date", "value": "2026-06-01"},
+          {"name": "status", "value": "open"}
+        ],
+        "remarks": "Owner: ENG-LEAD"
+      },
+      {
+        "uuid": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaa0003",
+        "title": "POAM-003: Access log bucket uses AES256 instead of KMS",
+        "description": "Checkov CKV_AWS_145. AES256 is FIPS 140-2 validated.",
+        "props": [
+          {"name": "severity", "value": "medium"},
+          {"name": "control-id", "value": "sc-13"},
+          {"name": "weakness-source", "value": "checkov:CKV_AWS_145"},
+          {"name": "scheduled-completion-date", "value": "2026-07-15"},
+          {"name": "status", "value": "open"}
+        ],
+        "remarks": "Decision: avoid circular KMS dependency"
+      },
+      {
+        "uuid": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaa0004",
+        "title": "POAM-004: No lifecycle policy on data buckets",
+        "description": "Checkov CKV2_AWS_61. AU-11 requires log retention.",
+        "props": [
+          {"name": "severity", "value": "medium"},
+          {"name": "control-id", "value": "au-11"},
+          {"name": "weakness-source", "value": "checkov:CKV2_AWS_61"},
+          {"name": "scheduled-completion-date", "value": "2026-07-01"},
+          {"name": "status", "value": "open"}
+        ],
+        "remarks": "1-year retention planned"
+      },
+      {
+        "uuid": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaa0005",
+        "title": "POAM-005: No S3 event notifications",
+        "description": "Checkov CKV2_AWS_62. Supports SI-4 with real-time alerts.",
+        "props": [
+          {"name": "severity", "value": "medium"},
+          {"name": "control-id", "value": "si-4"},
+          {"name": "weakness-source", "value": "checkov:CKV2_AWS_62"},
+          {"name": "scheduled-completion-date", "value": "2026-08-01"},
+          {"name": "status", "value": "open"}
+        ],
+        "remarks": "Plan: emit s3:ObjectCreated to EventBridge"
+      },
+      {
+        "uuid": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaa0006",
+        "title": "POAM-006: No cross-region replication (RISK ACCEPTED)",
+        "description": "Checkov CKV_AWS_144. FedRAMP Moderate does not require multi-region.",
+        "props": [
+          {"name": "severity", "value": "low"},
+          {"name": "control-id", "value": "cp-9"},
+          {"name": "weakness-source", "value": "checkov:CKV_AWS_144"},
+          {"name": "status", "value": "risk-accepted"}
+        ],
+        "remarks": "Compensating: versioning, separate-account backup"
+      }
+    ]
+  }
+}
