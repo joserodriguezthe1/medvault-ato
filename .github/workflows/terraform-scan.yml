@@ -1,0 +1,76 @@
+# =============================================================================
+# Terraform IaC compliance scan
+#
+# Controls implemented by this workflow:
+#   CM-3   Configuration Change Control  (blocks merge on policy failure)
+#   CM-6   Configuration Settings        (enforces baseline via Checkov)
+#   CA-7   Continuous Monitoring         (runs on every push, artifacts saved)
+#   SA-11  Developer Security Testing    (security check in dev pipeline)
+# =============================================================================
+
+name: terraform-scan
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**.tf"
+      - ".github/workflows/terraform-scan.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "**.tf"
+
+permissions:
+  contents: read
+  security-events: write
+  pull-requests: write
+
+jobs:
+  checkov:
+    name: Checkov IaC Scan
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Checkov
+        run: pip install checkov==3.*
+
+      - name: Run Checkov
+        id: checkov
+        run: |
+          checkov \
+            --directory . \
+            --framework terraform \
+            --output sarif \
+            --output-file-path checkov-results/ \
+            --soft-fail false
+        continue-on-error: true
+
+      - name: Upload SARIF to GitHub Security tab
+        if: always()
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: checkov-results/results_sarif.sarif
+          category: checkov
+
+      - name: Archive SARIF as evidence artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: checkov-sarif-${{ github.run_id }}
+          path: checkov-results/results_sarif.sarif
+          retention-days: 90
+
+      - name: Fail the build if Checkov failed
+        if: steps.checkov.outcome == 'failure'
+        run: |
+          echo "::error::Checkov found policy violations. See the Security tab."
+          exit 1
