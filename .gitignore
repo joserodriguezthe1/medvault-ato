@@ -21,3 +21,6 @@ checkov-results/
 trivy-results.sarif
 *.sarif
 evidence/
+
+# Local OSCAL outputs (CI will commit its own)
+oscal/assessment-results/run-local-*.json
