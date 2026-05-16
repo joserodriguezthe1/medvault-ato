@@ -1,0 +1,627 @@
+{
+  "assessment-results": {
+    "uuid": "97cc9fb7-8f91-4769-9068-c913e7f2313d",
+    "metadata": {
+      "title": "MedVault CI Assessment - Run 25972625816",
+      "last-modified": "2026-05-16T20:51:57Z",
+      "version": "0.1.0",
+      "oscal-version": "1.1.2",
+      "props": [
+        {
+          "name": "commit-sha",
+          "value": "ea71f9eb39cd3b1797f6718d3373de77f72cb84b"
+        },
+        {
+          "name": "ci-run-id",
+          "value": "25972625816"
+        }
+      ]
+    },
+    "import-ap": {
+      "href": "../assessment-plans/medvault-ap.json"
+    },
+    "results": [
+      {
+        "uuid": "66674fee-4668-4a59-b819-d54e1e8b3c69",
+        "title": "Pipeline assessment for commit ea71f9e",
+        "description": "Automated control assessment generated from Checkov (IaC) and Trivy (container) SARIF output.",
+        "start": "2026-05-16T20:51:57Z",
+        "end": "2026-05-16T20:51:57Z",
+        "reviewed-controls": {
+          "control-selections": [
+            {
+              "include-controls": [
+                {
+                  "control-id": "au-11"
+                },
+                {
+                  "control-id": "cm-6"
+                },
+                {
+                  "control-id": "cp-9"
+                },
+                {
+                  "control-id": "sc-13"
+                },
+                {
+                  "control-id": "si-4"
+                }
+              ]
+            }
+          ]
+        },
+        "observations": [
+          {
+            "uuid": "3ac156a8-0a01-4c97-b496-0fa16e3ad2b7",
+            "title": "Checkov: CKV2_AWS_62",
+            "description": "Ensure S3 buckets should have event notifications enabled",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "26687d02-32d2-4af0-8edc-94cdf9680a6b"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Checkov"
+              },
+              {
+                "name": "rule-id",
+                "value": "CKV2_AWS_62"
+              },
+              {
+                "name": "location",
+                "value": "infrastructure/s3-bucket.tf"
+              }
+            ],
+            "collected": "2026-05-16T20:51:57Z"
+          },
+          {
+            "uuid": "e4681504-f448-4d35-a929-d95449009108",
+            "title": "Checkov: CKV2_AWS_62",
+            "description": "Ensure S3 buckets should have event notifications enabled",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "f13a46c4-5134-4e81-89f4-e38610008aad"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Checkov"
+              },
+              {
+                "name": "rule-id",
+                "value": "CKV2_AWS_62"
+              },
+              {
+                "name": "location",
+                "value": "infrastructure/s3-bucket.tf"
+              }
+            ],
+            "collected": "2026-05-16T20:51:57Z"
+          },
+          {
+            "uuid": "60a9cfa5-35fd-4118-ae63-541bfb17e944",
+            "title": "Checkov: CKV2_AWS_64",
+            "description": "Ensure KMS key Policy is defined",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "07cdcdc7-5c2d-47d7-8a71-6ed754ce4cdd"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Checkov"
+              },
+              {
+                "name": "rule-id",
+                "value": "CKV2_AWS_64"
+              },
+              {
+                "name": "location",
+                "value": "infrastructure/s3-bucket.tf"
+              }
+            ],
+            "collected": "2026-05-16T20:51:57Z"
+          },
+          {
+            "uuid": "0e759fa0-2c4e-4f48-96b9-6789d020f111",
+            "title": "Checkov: CKV_AWS_144",
+            "description": "Ensure that S3 bucket has cross-region replication enabled",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "c9227274-bc65-46b5-8e2f-fd23a3edba8a"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Checkov"
+              },
+              {
+                "name": "rule-id",
+                "value": "CKV_AWS_144"
+              },
+              {
+                "name": "location",
+                "value": "infrastructure/s3-bucket.tf"
+              }
+            ],
+            "collected": "2026-05-16T20:51:57Z"
+          },
+          {
+            "uuid": "b8a6905c-036f-42e5-ac5d-1e5a274a101d",
+            "title": "Checkov: CKV_AWS_144",
+            "description": "Ensure that S3 bucket has cross-region replication enabled",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "9dd303de-16c9-43cb-9500-bf1490eb195e"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Checkov"
+              },
+              {
+                "name": "rule-id",
+                "value": "CKV_AWS_144"
+              },
+              {
+                "name": "location",
+                "value": "infrastructure/s3-bucket.tf"
+              }
+            ],
+            "collected": "2026-05-16T20:51:57Z"
+          },
+          {
+            "uuid": "74edbd25-04f6-4ada-adc8-e34360db2034",
+            "title": "Checkov: CKV2_AWS_61",
+            "description": "Ensure that an S3 bucket has a lifecycle configuration",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "e09c60b2-7087-4a90-b6bd-f209aa6519ad"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Checkov"
+              },
+              {
+                "name": "rule-id",
+                "value": "CKV2_AWS_61"
+              },
+              {
+                "name": "location",
+                "value": "infrastructure/s3-bucket.tf"
+              }
+            ],
+            "collected": "2026-05-16T20:51:57Z"
+          },
+          {
+            "uuid": "a2f3b19c-578e-425e-87d8-7b91bff19901",
+            "title": "Checkov: CKV2_AWS_61",
+            "description": "Ensure that an S3 bucket has a lifecycle configuration",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "76c7dd9d-4bad-4d73-8554-f02bcaffe7eb"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Checkov"
+              },
+              {
+                "name": "rule-id",
+                "value": "CKV2_AWS_61"
+              },
+              {
+                "name": "location",
+                "value": "infrastructure/s3-bucket.tf"
+              }
+            ],
+            "collected": "2026-05-16T20:51:57Z"
+          },
+          {
+            "uuid": "d00fdb2e-0b4a-4ed5-9309-8eaacb018b6c",
+            "title": "Checkov: CKV_AWS_21",
+            "description": "Ensure all data stored in the S3 bucket have versioning enabled",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "b793953c-9a89-409e-8de4-5905e7ed4e4d"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Checkov"
+              },
+              {
+                "name": "rule-id",
+                "value": "CKV_AWS_21"
+              },
+              {
+                "name": "location",
+                "value": "infrastructure/s3-bucket.tf"
+              }
+            ],
+            "collected": "2026-05-16T20:51:57Z"
+          },
+          {
+            "uuid": "1fd7c19f-db7f-4c6c-b37b-5224c35c29c7",
+            "title": "Checkov: CKV_AWS_145",
+            "description": "Ensure that S3 buckets are encrypted with KMS by default",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "757b4896-eacf-401b-9d80-8ccdedc49d2e"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Checkov"
+              },
+              {
+                "name": "rule-id",
+                "value": "CKV_AWS_145"
+              },
+              {
+                "name": "location",
+                "value": "infrastructure/s3-bucket.tf"
+              }
+            ],
+            "collected": "2026-05-16T20:51:57Z"
+          }
+        ],
+        "findings": [
+          {
+            "uuid": "a9059914-19cd-430f-897c-e4caffc80bd9",
+            "title": "CKV2_AWS_62 affects SI-4",
+            "description": "Checkov reported 'CKV2_AWS_62' against infrastructure/s3-bucket.tf. This is mapped to control SI-4.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-4_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "3ac156a8-0a01-4c97-b496-0fa16e3ad2b7"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "high"
+              },
+              {
+                "name": "control-id",
+                "value": "si-4"
+              }
+            ]
+          },
+          {
+            "uuid": "634cac55-87f4-47ac-b045-9f9389159f78",
+            "title": "CKV2_AWS_62 affects SI-4",
+            "description": "Checkov reported 'CKV2_AWS_62' against infrastructure/s3-bucket.tf. This is mapped to control SI-4.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-4_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "e4681504-f448-4d35-a929-d95449009108"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "high"
+              },
+              {
+                "name": "control-id",
+                "value": "si-4"
+              }
+            ]
+          },
+          {
+            "uuid": "5b377ac5-1090-4138-8dc5-2f4a525d27dc",
+            "title": "CKV2_AWS_64 affects SC-13",
+            "description": "Checkov reported 'CKV2_AWS_64' against infrastructure/s3-bucket.tf. This is mapped to control SC-13.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "sc-13_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "60a9cfa5-35fd-4118-ae63-541bfb17e944"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "high"
+              },
+              {
+                "name": "control-id",
+                "value": "sc-13"
+              }
+            ]
+          },
+          {
+            "uuid": "3110a772-25bc-41bc-ba7d-ca37a808ed76",
+            "title": "CKV_AWS_144 affects CP-9",
+            "description": "Checkov reported 'CKV_AWS_144' against infrastructure/s3-bucket.tf. This is mapped to control CP-9.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "cp-9_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "0e759fa0-2c4e-4f48-96b9-6789d020f111"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "high"
+              },
+              {
+                "name": "control-id",
+                "value": "cp-9"
+              }
+            ]
+          },
+          {
+            "uuid": "ceaaad8d-611f-4089-83d4-ccf794fc9c9e",
+            "title": "CKV_AWS_144 affects CP-9",
+            "description": "Checkov reported 'CKV_AWS_144' against infrastructure/s3-bucket.tf. This is mapped to control CP-9.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "cp-9_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "b8a6905c-036f-42e5-ac5d-1e5a274a101d"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "high"
+              },
+              {
+                "name": "control-id",
+                "value": "cp-9"
+              }
+            ]
+          },
+          {
+            "uuid": "47585b39-1a60-49e2-942b-76a55a9258b4",
+            "title": "CKV2_AWS_61 affects AU-11",
+            "description": "Checkov reported 'CKV2_AWS_61' against infrastructure/s3-bucket.tf. This is mapped to control AU-11.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "au-11_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "74edbd25-04f6-4ada-adc8-e34360db2034"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "high"
+              },
+              {
+                "name": "control-id",
+                "value": "au-11"
+              }
+            ]
+          },
+          {
+            "uuid": "784790e5-5d31-4495-abd8-015ce2429bf4",
+            "title": "CKV2_AWS_61 affects AU-11",
+            "description": "Checkov reported 'CKV2_AWS_61' against infrastructure/s3-bucket.tf. This is mapped to control AU-11.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "au-11_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "a2f3b19c-578e-425e-87d8-7b91bff19901"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "high"
+              },
+              {
+                "name": "control-id",
+                "value": "au-11"
+              }
+            ]
+          },
+          {
+            "uuid": "62504468-d180-4334-9638-b6b3c8c46c7d",
+            "title": "CKV_AWS_21 affects CM-6",
+            "description": "Checkov reported 'CKV_AWS_21' against infrastructure/s3-bucket.tf. This is mapped to control CM-6.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "cm-6_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "d00fdb2e-0b4a-4ed5-9309-8eaacb018b6c"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "high"
+              },
+              {
+                "name": "control-id",
+                "value": "cm-6"
+              }
+            ]
+          },
+          {
+            "uuid": "f8a86677-be75-4ecc-939b-ed8873d5f189",
+            "title": "CKV_AWS_145 affects SC-13",
+            "description": "Checkov reported 'CKV_AWS_145' against infrastructure/s3-bucket.tf. This is mapped to control SC-13.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "sc-13_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "1fd7c19f-db7f-4c6c-b37b-5224c35c29c7"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "high"
+              },
+              {
+                "name": "control-id",
+                "value": "sc-13"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
