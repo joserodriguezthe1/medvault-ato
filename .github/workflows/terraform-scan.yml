@@ -1,10 +1,11 @@
 # =============================================================================
-# Terraform IaC compliance scan
+# Terraform IaC compliance scan + OSCAL transform
 #
 # Controls implemented by this workflow:
 #   CM-3   Configuration Change Control  (blocks merge on policy failure)
 #   CM-6   Configuration Settings        (enforces baseline via Checkov)
-#   CA-7   Continuous Monitoring         (runs on every push, artifacts saved)
+#   CA-7   Continuous Monitoring         (runs on every push, OSCAL per run)
+#   CA-2   Control Assessments           (auto-generates OSCAL AR per run)
 #   SA-11  Developer Security Testing    (security check in dev pipeline)
 # =============================================================================
 
@@ -15,6 +16,7 @@ on:
     branches: [main]
     paths:
       - "**.tf"
+      - "scripts/evidence-to-oscal.py"
       - ".github/workflows/terraform-scan.yml"
   pull_request:
     branches: [main]
@@ -22,18 +24,21 @@ on:
       - "**.tf"
 
 permissions:
-  contents: read
+  contents: write          # write needed to commit OSCAL output back to repo
   security-events: write
   pull-requests: write
 
 jobs:
   checkov:
-    name: Checkov IaC Scan
+    name: Checkov IaC Scan + OSCAL Transform
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # Fetch full history so we can commit back to the same branch
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -51,7 +56,6 @@ jobs:
             --framework terraform \
             --output sarif \
             --output-file-path checkov-results/
-
         continue-on-error: true
 
       - name: Upload SARIF to GitHub Security tab
@@ -69,8 +73,38 @@ jobs:
           path: checkov-results/results_sarif.sarif
           retention-days: 90
 
+      - name: Transform SARIF to OSCAL Assessment Results
+        if: always()
+        run: |
+          python scripts/evidence-to-oscal.py \
+            --checkov-sarif checkov-results/results_sarif.sarif \
+            --commit "${{ github.sha }}" \
+            --run-id "${{ github.run_id }}" \
+            --output "oscal/assessment-results/run-${{ github.run_id }}.json"
+
+      - name: Archive OSCAL document as evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: oscal-ar-${{ github.run_id }}
+          path: oscal/assessment-results/run-${{ github.run_id }}.json
+          retention-days: 90
+
+      - name: Commit OSCAL document back to repo (push to main only)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add oscal/assessment-results/
+          if git diff --cached --quiet; then
+            echo "No OSCAL changes to commit"
+          else
+            git commit -m "ci: OSCAL Assessment Results for run ${{ github.run_id }} [skip ci]"
+            git push
+          fi
+
       - name: Fail the build if Checkov failed
         if: steps.checkov.outcome == 'failure'
         run: |
-          echo "::error::Checkov found policy violations. See the Security tab."
+          echo "::error::Checkov found policy violations. See Security tab and oscal/assessment-results/ for full evidence."
           exit 1
