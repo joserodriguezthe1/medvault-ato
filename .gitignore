@@ -1,0 +1,23 @@
+﻿# Python
+__pycache__/
+*.pyc
+.venv/
+.env
+
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfplan
+.terraform.lock.hcl
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
+
+# Generated evidence (we commit OSCAL, not raw SARIF)
+checkov-results/
+trivy-results.sarif
+*.sarif
+evidence/
