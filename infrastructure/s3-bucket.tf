@@ -1,4 +1,4 @@
-﻿# ==========================================================================
+# ==========================================================================
 # MedVault - Step 1
 # Encrypted, logged, versioned S3 bucket for storing public-health reports.
 #
@@ -13,7 +13,7 @@
 resource "aws_kms_key" "reports" {
   description             = "MedVault reports bucket encryption key"
   deletion_window_in_days = 30
-  enable_key_rotation     = true   # SC-12 - annual key rotation
+  enable_key_rotation     = true # SC-12 - annual key rotation
   tags = {
     Control = "SC-13"
     System  = "MedVault"
@@ -96,7 +96,7 @@ resource "aws_s3_bucket" "access_logs" {
   bucket = "medvault-access-logs-${var.environment}"
   tags = {
     System  = "MedVault"
-    Purpose = "Access logs (AU-2 evidence)"
+    Purpose = "Access logs - AU-2 evidence"
   }
 }
 
@@ -104,7 +104,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "access_logs" {
   bucket = aws_s3_bucket.access_logs.id
   rule {
     apply_server_side_encryption_by_default {
-      sse_algorithm = "AES256"   # S3-managed key is sufficient for log bucket
+      sse_algorithm = "AES256" # S3-managed key is sufficient for log bucket
     }
   }
 }
