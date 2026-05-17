@@ -97,7 +97,7 @@ Detailed control matrix: [docs/control-matrix.md](docs/control-matrix.md).
 
 ---
 
-## Phase 11 - Application & Supply Chain Layer
+## Application & Supply Chain Layer
 
 A second pipeline (``container-scan``) covers the application and supply-chain side of the system.
 
