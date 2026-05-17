@@ -22,7 +22,7 @@ on:
 
 permissions:
   contents: read
-  security-events: write   # SARIF upload to Security tab
+  security-events: write
 
 jobs:
   trivy:
@@ -47,14 +47,14 @@ jobs:
 
       - name: Run Trivy vulnerability scanner
         id: trivy
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@master
         with:
           image-ref: medvault:${{ github.sha }}
           format: sarif
           output: trivy-results.sarif
           severity: CRITICAL,HIGH,MEDIUM
           ignore-unfixed: true
-          exit-code: 0    # do not fail on findings yet; let the gate step decide
+          exit-code: 0
 
       - name: Upload Trivy SARIF to Security tab
         if: always()
