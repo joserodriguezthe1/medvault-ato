@@ -97,18 +97,6 @@ Detailed control matrix: [docs/control-matrix.md](docs/control-matrix.md).
 
 ---
 
-## Author
-
-Built by **Jose Rodriguez** as a GRC engineering portfolio project.
-
-[GitHub](https://github.com/joserodriguezthe1)
-
-## License
-
-MIT
-
----
-
 ## Phase 11 - Application & Supply Chain Layer
 
 A second pipeline (``container-scan``) covers the application and supply-chain side of the system.
@@ -155,3 +143,15 @@ Returns the signature, the Fulcio certificate, and the Rekor transparency log en
 ![Cosign subject](docs/screenshots/cosign-verify-subject.png)
 ![OSCAL Trivy observation](docs/screenshots/oscal-trivy-observation.png)
 ![Audit logs](docs/screenshots/structured-audit-logs.png)
+
+---
+
+## Author
+
+Built by **Jose Rodriguez** as a GRC engineering portfolio project.
+
+[GitHub](https://github.com/joserodriguezthe1)
+
+## License
+
+MIT
