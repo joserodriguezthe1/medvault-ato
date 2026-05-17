@@ -34,7 +34,7 @@ This document maps each implemented FedRAMP Moderate control to the technical co
 
 
 
-\## Known Gaps (Tracked in POA\&M)
+## Known Gaps (Tracked in POA\&M)
 
 
 
@@ -64,7 +64,7 @@ POAM-006 demonstrates the formal risk-acceptance workflow: a documented decision
 
 
 
-\## Future Scope (Planned)
+## Future Scope (Planned)
 
 
 
