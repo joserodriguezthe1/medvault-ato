@@ -6,7 +6,7 @@ This document maps each implemented FedRAMP Moderate control to the technical co
 
 
 
-\## Implemented Controls
+## Implemented Controls
 
 
 
