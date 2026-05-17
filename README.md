@@ -1,4 +1,4 @@
-﻿# \# MedVault - OSCAL-Driven Continuous ATO Pipeline
+# \# MedVault - OSCAL-Driven Continuous ATO Pipeline
 
 # 
 
