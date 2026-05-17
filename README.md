@@ -109,7 +109,7 @@ MIT
 
 ---
 
-## Phase 11 — Application & Supply Chain Layer
+## Phase 11 - Application & Supply Chain Layer
 
 A second pipeline (``container-scan``) covers the application and supply-chain side of the system.
 
@@ -139,11 +139,13 @@ A second pipeline (``container-scan``) covers the application and supply-chain s
 
 ### Cryptographic verification (anyone can do this)
 
-cosign verify ghcr.io/joserodriguezthe1/medvault-ato/medvault:latest 
---certificate-identity-regexp "https://github.com/joserodriguezthe1/medvault-ato/.github/workflows/container-scan.yml.*" 
---certificate-oidc-issuer "https://token.actions.githubusercontent.com"
+```bash
+cosign verify ghcr.io/joserodriguezthe1/medvault-ato/medvault:latest \
+  --certificate-identity-regexp "https://github.com/joserodriguezthe1/medvault-ato/.github/workflows/container-scan.yml.*" \
+  --certificate-oidc-issuer "https://token.actions.githubusercontent.com"
+```
 
-Returns the signature, the Fulcio certificate, and the Rekor transparency log entry — proving the image was built by this exact workflow at a specific commit.
+Returns the signature, the Fulcio certificate, and the Rekor transparency log entry - proving the image was built by this exact workflow at a specific commit.
 
 ### Phase 11 screenshots
 
