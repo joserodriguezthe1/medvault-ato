@@ -1,5 +1,5 @@
 # =============================================================================
-# Container security scan + signing + SBOM
+# Container security scan + signing + SBOM + OSCAL transform
 #
 # Controls implemented by this workflow:
 #   RA-5  Vulnerability Monitoring   (Trivy scan on every push)
@@ -7,7 +7,8 @@
 #   SI-7  Software Integrity         (Cosign keyless signing)
 #   SR-3  Supply Chain Controls      (SBOM generated and attached)
 #   SR-4  Provenance                 (signature in Sigstore Rekor transparency log)
-#   CA-7  Continuous Monitoring      (runs on every relevant push)
+#   CA-7  Continuous Monitoring      (runs on every relevant push, OSCAL per run)
+#   CA-2  Control Assessments        (OSCAL Assessment Results emitted)
 # =============================================================================
 
 name: container-scan
@@ -17,6 +18,7 @@ on:
     branches: [main]
     paths:
       - "app/**"
+      - "scripts/evidence-to-oscal.py"
       - ".github/workflows/container-scan.yml"
   pull_request:
     branches: [main]
@@ -24,11 +26,11 @@ on:
       - "app/**"
 
 permissions:
-  contents: read
-  packages: write           # push to GHCR
-  security-events: write    # SARIF upload
-  id-token: write           # Cosign keyless OIDC
-  attestations: write       # SBOM attestation
+  contents: write           # write needed to commit OSCAL output back
+  packages: write
+  security-events: write
+  id-token: write
+  attestations: write
 
 env:
   REGISTRY: ghcr.io
@@ -36,18 +38,24 @@ env:
 
 jobs:
   build-scan-sign:
-    name: Build, scan, sign, and attest
+    name: Build, scan, sign, attest, and transform
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0     # required for git push back
 
       - name: Lowercase image name
-        # GHCR requires lowercase image names; github.repository may be mixed case
         id: img
         run: |
           echo "name=$(echo ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -107,7 +115,7 @@ jobs:
             echo "::notice::Trivy found $total fixable vulnerability findings (CRITICAL/HIGH/MEDIUM)."
           fi
 
-      # ---- SR-3: Software Bill of Materials ---------------------------------
+      # ---- SR-3: SBOM -------------------------------------------------------
       - name: Generate SBOM with Syft
         if: github.event_name == 'push'
         uses: anchore/sbom-action@v0
@@ -118,12 +126,12 @@ jobs:
           upload-artifact: true
           upload-artifact-retention: 90
 
-      # ---- SI-7 / SR-4: Cryptographic signing + provenance ------------------
+      # ---- SI-7 / SR-4: Cosign keyless signing + SBOM attestation -----------
       - name: Install Cosign
         if: github.event_name == 'push'
         uses: sigstore/cosign-installer@v3
 
-      - name: Sign the image (keyless via Sigstore Fulcio + Rekor)
+      - name: Sign the image (keyless)
         if: github.event_name == 'push'
         env:
           COSIGN_EXPERIMENTAL: "1"
@@ -132,7 +140,7 @@ jobs:
             ${{ steps.img.outputs.name }}@${{ steps.build.outputs.digest }}
           echo "::notice::Signed image ${{ steps.img.outputs.name }}@${{ steps.build.outputs.digest }} via Sigstore keyless flow"
 
-      - name: Attest the SBOM (signed predicate)
+      - name: Attest SBOM
         if: github.event_name == 'push'
         env:
           COSIGN_EXPERIMENTAL: "1"
@@ -142,3 +150,34 @@ jobs:
             --type cyclonedx \
             ${{ steps.img.outputs.name }}@${{ steps.build.outputs.digest }}
           echo "::notice::Attached signed SBOM attestation"
+
+      # ---- CA-2 / CA-7: Transform Trivy SARIF to OSCAL Assessment Results ---
+      - name: Transform Trivy SARIF to OSCAL Assessment Results
+        if: always()
+        run: |
+          python scripts/evidence-to-oscal.py \
+            --trivy-sarif trivy-results.sarif \
+            --commit "${{ github.sha }}" \
+            --run-id "${{ github.run_id }}" \
+            --output "oscal/assessment-results/run-${{ github.run_id }}-container.json"
+
+      - name: Archive OSCAL document as evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: oscal-ar-container-${{ github.run_id }}
+          path: oscal/assessment-results/run-${{ github.run_id }}-container.json
+          retention-days: 90
+
+      - name: Commit OSCAL document back to repo
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add oscal/assessment-results/
+          if git diff --cached --quiet; then
+            echo "No OSCAL changes to commit"
+          else
+            git commit -m "ci: container-scan OSCAL Assessment Results for run ${{ github.run_id }} [skip ci]"
+            git push
+          fi
