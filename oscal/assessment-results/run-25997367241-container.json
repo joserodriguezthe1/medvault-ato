@@ -1,0 +1,4281 @@
+{
+  "assessment-results": {
+    "uuid": "3ef83e9a-ce2b-4d15-ad43-2d3b98c13a2d",
+    "metadata": {
+      "title": "MedVault CI Assessment - Run 25997367241",
+      "last-modified": "2026-05-17T17:12:58Z",
+      "version": "0.1.0",
+      "oscal-version": "1.1.2",
+      "props": [
+        {
+          "name": "commit-sha",
+          "value": "492803ed7145a73ee6cdd9051afb3aa4fff128df"
+        },
+        {
+          "name": "ci-run-id",
+          "value": "25997367241"
+        }
+      ]
+    },
+    "import-ap": {
+      "href": "../assessment-plans/medvault-ap.json"
+    },
+    "results": [
+      {
+        "uuid": "b51f05d6-0e11-49c0-ab81-089f057a37bc",
+        "title": "Pipeline assessment for commit 492803e",
+        "description": "Automated control assessment generated from Checkov (IaC) and Trivy (container) SARIF output.",
+        "start": "2026-05-17T17:12:58Z",
+        "end": "2026-05-17T17:12:58Z",
+        "reviewed-controls": {
+          "control-selections": [
+            {
+              "include-controls": [
+                {
+                  "control-id": "ra-5"
+                },
+                {
+                  "control-id": "si-2"
+                }
+              ]
+            }
+          ]
+        },
+        "observations": [
+          {
+            "uuid": "cc32410f-dfa0-424a-845c-017ef254a2fd",
+            "title": "Trivy: CVE-2026-0861",
+            "description": "Package: libc6\nInstalled Version: 2.36-9+deb12u13\nVulnerability CVE-2026-0861\nSeverity: HIGH\nFixed Version: 2.36-9+deb12u14\nLink: [CVE-2026-0861](https://avd.aquasec.com/nvd/cve-2026-0861)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "b5969350-4bef-42be-9d78-c7c0f2ff0926"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2026-0861"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "b05a2d17-88ee-4426-970d-66d29205501f",
+            "title": "Trivy: CVE-2025-15281",
+            "description": "Package: libc6\nInstalled Version: 2.36-9+deb12u13\nVulnerability CVE-2025-15281\nSeverity: MEDIUM\nFixed Version: 2.36-9+deb12u14\nLink: [CVE-2025-15281](https://avd.aquasec.com/nvd/cve-2025-15281)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "bb0a9d57-a1c5-42d2-ad5a-4441249f93a3"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2025-15281"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "73d0c90e-adef-4817-b3c7-801e42011a4c",
+            "title": "Trivy: CVE-2026-0915",
+            "description": "Package: libc6\nInstalled Version: 2.36-9+deb12u13\nVulnerability CVE-2026-0915\nSeverity: MEDIUM\nFixed Version: 2.36-9+deb12u14\nLink: [CVE-2026-0915](https://avd.aquasec.com/nvd/cve-2026-0915)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "83bc5cc4-5266-44c0-a59e-4ab23165b978"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2026-0915"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "09a81b27-49dd-4d4a-a997-30d132c94329",
+            "title": "Trivy: CVE-2026-4046",
+            "description": "Package: libc6\nInstalled Version: 2.36-9+deb12u13\nVulnerability CVE-2026-4046\nSeverity: MEDIUM\nFixed Version: 2.36-9+deb12u14\nLink: [CVE-2026-4046](https://avd.aquasec.com/nvd/cve-2026-4046)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "878065d2-6ff9-4b32-8d0b-e640e6236524"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2026-4046"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "ad60cc07-1764-40a5-b1ec-3a999a135d7c",
+            "title": "Trivy: CVE-2026-4437",
+            "description": "Package: libc6\nInstalled Version: 2.36-9+deb12u13\nVulnerability CVE-2026-4437\nSeverity: MEDIUM\nFixed Version: 2.36-9+deb12u14\nLink: [CVE-2026-4437](https://avd.aquasec.com/nvd/cve-2026-4437)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "4d5850e4-311a-42f7-8c5e-aa24f8ffa68d"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2026-4437"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "56acd05e-f701-46a9-a7d1-f1556ad40e82",
+            "title": "Trivy: CVE-2026-4438",
+            "description": "Package: libc6\nInstalled Version: 2.36-9+deb12u13\nVulnerability CVE-2026-4438\nSeverity: MEDIUM\nFixed Version: 2.36-9+deb12u14\nLink: [CVE-2026-4438](https://avd.aquasec.com/nvd/cve-2026-4438)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "e1a5b86a-dc18-449a-854e-66ffdbe67e09"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2026-4438"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "fdc93ea5-be16-41df-998b-b3c996671b25",
+            "title": "Trivy: CVE-2025-13836",
+            "description": "Package: libpython3.11-minimal\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2025-13836\nSeverity: HIGH\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2025-13836](https://avd.aquasec.com/nvd/cve-2025-13836)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "153881e9-62f7-4d14-a195-b711e56ab75e"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2025-13836"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "3b1cc91a-78b3-4b8d-b6e1-349277413ae8",
+            "title": "Trivy: CVE-2025-8194",
+            "description": "Package: libpython3.11-minimal\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2025-8194\nSeverity: HIGH\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2025-8194](https://avd.aquasec.com/nvd/cve-2025-8194)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "9be4f05d-e998-42e9-b611-28ed61812257"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2025-8194"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "ade901f2-5a17-4cc5-b1be-0f708b17cefb",
+            "title": "Trivy: CVE-2026-1299",
+            "description": "Package: libpython3.11-minimal\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2026-1299\nSeverity: HIGH\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2026-1299](https://avd.aquasec.com/nvd/cve-2026-1299)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "ec6242a8-5634-4065-b9cd-f243bf179244"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2026-1299"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "3c57b42b-540e-40e0-a22b-14e08b954fe7",
+            "title": "Trivy: CVE-2025-11468",
+            "description": "Package: libpython3.11-minimal\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2025-11468\nSeverity: MEDIUM\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2025-11468](https://avd.aquasec.com/nvd/cve-2025-11468)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "a75113c9-6e99-4737-a2a6-2357ba6ac8d3"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2025-11468"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "c1f1d3f2-6504-414f-aed6-88f55d919ea0",
+            "title": "Trivy: CVE-2025-12084",
+            "description": "Package: libpython3.11-minimal\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2025-12084\nSeverity: MEDIUM\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2025-12084](https://avd.aquasec.com/nvd/cve-2025-12084)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "dbfc334b-f0a7-470b-bf4b-825851092c57"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2025-12084"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "30a454a4-cd1b-4458-8507-34481b89fe1a",
+            "title": "Trivy: CVE-2025-13837",
+            "description": "Package: libpython3.11-minimal\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2025-13837\nSeverity: MEDIUM\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2025-13837](https://avd.aquasec.com/nvd/cve-2025-13837)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "b4962721-7128-47f4-a17b-05f673595e1c"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2025-13837"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "f1ec2690-68db-4826-8d88-45bf3b781171",
+            "title": "Trivy: CVE-2025-15282",
+            "description": "Package: libpython3.11-minimal\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2025-15282\nSeverity: MEDIUM\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2025-15282](https://avd.aquasec.com/nvd/cve-2025-15282)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "17e88a0a-05b7-422e-936f-b9a69011c211"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2025-15282"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "835a9b35-2e16-4b79-bbef-fe63318a6870",
+            "title": "Trivy: CVE-2025-4516",
+            "description": "Package: libpython3.11-minimal\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2025-4516\nSeverity: MEDIUM\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2025-4516](https://avd.aquasec.com/nvd/cve-2025-4516)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "e7259c85-6d80-4d46-9bc4-4d1e27e369f0"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2025-4516"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "3bf61603-ee94-4e38-a370-81cbb2929a20",
+            "title": "Trivy: CVE-2025-6069",
+            "description": "Package: libpython3.11-minimal\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2025-6069\nSeverity: MEDIUM\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2025-6069](https://avd.aquasec.com/nvd/cve-2025-6069)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "0b45080b-cff9-4c64-a78c-355beec62f5a"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2025-6069"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "2864f2e5-83bc-433a-8758-95fbb156684c",
+            "title": "Trivy: CVE-2025-6075",
+            "description": "Package: libpython3.11-minimal\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2025-6075\nSeverity: MEDIUM\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2025-6075](https://avd.aquasec.com/nvd/cve-2025-6075)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "b26775c7-ea3c-41bf-a168-32790953233b"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2025-6075"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "f67440e5-8ea7-4569-9a38-9da0bc53de2e",
+            "title": "Trivy: CVE-2025-8291",
+            "description": "Package: libpython3.11-minimal\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2025-8291\nSeverity: MEDIUM\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2025-8291](https://avd.aquasec.com/nvd/cve-2025-8291)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "12b4545c-2d76-4aa4-9752-2aec351ed348"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2025-8291"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "67ded103-5379-4d7a-87df-f56a9ae0fb8b",
+            "title": "Trivy: CVE-2026-0672",
+            "description": "Package: libpython3.11-minimal\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2026-0672\nSeverity: MEDIUM\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2026-0672](https://avd.aquasec.com/nvd/cve-2026-0672)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "2605d739-83f0-4834-86a2-be4f1ea5c194"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2026-0672"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "3fd49de1-ff9e-49d2-be35-585aa871f35f",
+            "title": "Trivy: CVE-2026-0865",
+            "description": "Package: libpython3.11-minimal\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2026-0865\nSeverity: MEDIUM\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2026-0865](https://avd.aquasec.com/nvd/cve-2026-0865)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "777880ef-fa0a-49f9-b1b1-30c3af326b46"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2026-0865"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "38998424-98ce-4ae4-976c-6a7ab739ff9a",
+            "title": "Trivy: CVE-2025-13836",
+            "description": "Package: libpython3.11-stdlib\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2025-13836\nSeverity: HIGH\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2025-13836](https://avd.aquasec.com/nvd/cve-2025-13836)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "6e080b6f-f609-483d-adcf-c8dc47a377a9"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2025-13836"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "0cd1fcf8-7684-4dc6-abba-a864813018fa",
+            "title": "Trivy: CVE-2025-8194",
+            "description": "Package: libpython3.11-stdlib\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2025-8194\nSeverity: HIGH\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2025-8194](https://avd.aquasec.com/nvd/cve-2025-8194)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "e1bb0bd1-0550-48aa-a10c-51d552bcbfa2"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2025-8194"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "2e29a8bc-50ae-4b81-8cc0-d9aea3ab67e9",
+            "title": "Trivy: CVE-2026-1299",
+            "description": "Package: libpython3.11-stdlib\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2026-1299\nSeverity: HIGH\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2026-1299](https://avd.aquasec.com/nvd/cve-2026-1299)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "03c6e4a2-8b60-48ad-a75f-0951fdf38d5e"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2026-1299"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "b93730c2-03cf-4119-a36a-6ead73f54325",
+            "title": "Trivy: CVE-2025-11468",
+            "description": "Package: libpython3.11-stdlib\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2025-11468\nSeverity: MEDIUM\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2025-11468](https://avd.aquasec.com/nvd/cve-2025-11468)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "8b56801b-3789-402f-9510-fea5af02767e"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2025-11468"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "ebf27cda-84de-46a5-bdd9-5b3a75709b62",
+            "title": "Trivy: CVE-2025-12084",
+            "description": "Package: libpython3.11-stdlib\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2025-12084\nSeverity: MEDIUM\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2025-12084](https://avd.aquasec.com/nvd/cve-2025-12084)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "94d6c821-a8cb-46ef-a62c-888e33b016b6"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2025-12084"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "7fd7289e-95c4-48bc-a81e-19212e282bdc",
+            "title": "Trivy: CVE-2025-13837",
+            "description": "Package: libpython3.11-stdlib\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2025-13837\nSeverity: MEDIUM\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2025-13837](https://avd.aquasec.com/nvd/cve-2025-13837)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "a5ff0ada-e1dd-44fd-8f4b-d9693a1d8932"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2025-13837"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "d32d5df3-d035-4288-9a1c-24ed1c81e2ab",
+            "title": "Trivy: CVE-2025-15282",
+            "description": "Package: libpython3.11-stdlib\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2025-15282\nSeverity: MEDIUM\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2025-15282](https://avd.aquasec.com/nvd/cve-2025-15282)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "729ca7a8-cc16-46cf-87aa-44caa3ad9548"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2025-15282"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "d4c95f03-7f77-4bf8-8e9f-4b9000f6c4c1",
+            "title": "Trivy: CVE-2025-4516",
+            "description": "Package: libpython3.11-stdlib\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2025-4516\nSeverity: MEDIUM\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2025-4516](https://avd.aquasec.com/nvd/cve-2025-4516)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "d6a30aaa-fdfa-4cc5-b147-5c379fa146df"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2025-4516"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "99cfdf49-6f9d-4a09-88f1-ea4fb10a783c",
+            "title": "Trivy: CVE-2025-6069",
+            "description": "Package: libpython3.11-stdlib\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2025-6069\nSeverity: MEDIUM\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2025-6069](https://avd.aquasec.com/nvd/cve-2025-6069)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "26c7933a-bef5-4c65-92d3-20de2ebe2ca7"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2025-6069"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "26aa3d8e-14a6-4a1b-9f1d-1c9bcc82b5e9",
+            "title": "Trivy: CVE-2025-6075",
+            "description": "Package: libpython3.11-stdlib\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2025-6075\nSeverity: MEDIUM\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2025-6075](https://avd.aquasec.com/nvd/cve-2025-6075)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "11fe411f-15c1-443b-9563-daa9dcca8f77"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2025-6075"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "bc729fb7-80d1-4f4f-be7e-e646a5bbe36e",
+            "title": "Trivy: CVE-2025-8291",
+            "description": "Package: libpython3.11-stdlib\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2025-8291\nSeverity: MEDIUM\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2025-8291](https://avd.aquasec.com/nvd/cve-2025-8291)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "f1bbcb69-b02b-44a2-81d3-b1e0ef744253"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2025-8291"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "9b4f9fe7-13a0-4863-b57e-c0aa2df23639",
+            "title": "Trivy: CVE-2026-0672",
+            "description": "Package: libpython3.11-stdlib\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2026-0672\nSeverity: MEDIUM\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2026-0672](https://avd.aquasec.com/nvd/cve-2026-0672)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "7d6667f0-dad0-43fc-903b-f57de891cbcd"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2026-0672"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "9142b974-b427-443a-a232-46a1ca518d78",
+            "title": "Trivy: CVE-2026-0865",
+            "description": "Package: libpython3.11-stdlib\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2026-0865\nSeverity: MEDIUM\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2026-0865](https://avd.aquasec.com/nvd/cve-2026-0865)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "eea6ce6d-579d-431f-adcf-5127c1e70508"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2026-0865"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "b4953773-a244-4487-9bf4-8e5a53c82c37",
+            "title": "Trivy: CVE-2025-13836",
+            "description": "Package: python3.11-minimal\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2025-13836\nSeverity: HIGH\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2025-13836](https://avd.aquasec.com/nvd/cve-2025-13836)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "46f4b08d-6360-4878-96ec-689577fbbab2"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2025-13836"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "ad5bab17-ccd3-4512-bd94-6d7ad52eb783",
+            "title": "Trivy: CVE-2025-8194",
+            "description": "Package: python3.11-minimal\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2025-8194\nSeverity: HIGH\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2025-8194](https://avd.aquasec.com/nvd/cve-2025-8194)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "21773a4a-de67-40ba-a1ed-df827c1a97b9"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2025-8194"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "986fa4b8-46ac-449f-8d17-ed692010b710",
+            "title": "Trivy: CVE-2026-1299",
+            "description": "Package: python3.11-minimal\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2026-1299\nSeverity: HIGH\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2026-1299](https://avd.aquasec.com/nvd/cve-2026-1299)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "5d3e7623-06a5-4478-851f-0ad855cfd74d"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2026-1299"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "4837c895-1626-4d82-b001-f4554b5f8f1e",
+            "title": "Trivy: CVE-2025-11468",
+            "description": "Package: python3.11-minimal\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2025-11468\nSeverity: MEDIUM\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2025-11468](https://avd.aquasec.com/nvd/cve-2025-11468)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "e15fcccd-c822-45ea-bc95-cbf383d8f570"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2025-11468"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "cd2650f0-bb07-4dc9-a399-27096c224aa2",
+            "title": "Trivy: CVE-2025-12084",
+            "description": "Package: python3.11-minimal\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2025-12084\nSeverity: MEDIUM\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2025-12084](https://avd.aquasec.com/nvd/cve-2025-12084)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "96f82ef1-0c45-46d9-b111-f5c913d07a00"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2025-12084"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "c5899197-62a0-4536-8f26-d670b4272235",
+            "title": "Trivy: CVE-2025-13837",
+            "description": "Package: python3.11-minimal\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2025-13837\nSeverity: MEDIUM\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2025-13837](https://avd.aquasec.com/nvd/cve-2025-13837)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "556c96d1-e17f-4150-8893-00652a6ff235"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2025-13837"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "6364c986-f990-489a-b2ca-0ab51ce4f6bc",
+            "title": "Trivy: CVE-2025-15282",
+            "description": "Package: python3.11-minimal\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2025-15282\nSeverity: MEDIUM\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2025-15282](https://avd.aquasec.com/nvd/cve-2025-15282)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "032562a2-3a3b-4c30-a621-e1306cf7e352"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2025-15282"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "17519dac-19c5-4fa3-b8e0-5d9886ece13f",
+            "title": "Trivy: CVE-2025-4516",
+            "description": "Package: python3.11-minimal\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2025-4516\nSeverity: MEDIUM\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2025-4516](https://avd.aquasec.com/nvd/cve-2025-4516)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "2bc4c230-27bf-49b8-92e8-8c9abc9f636d"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2025-4516"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "bc475e85-7681-4cf1-9a63-6214365f5596",
+            "title": "Trivy: CVE-2025-6069",
+            "description": "Package: python3.11-minimal\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2025-6069\nSeverity: MEDIUM\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2025-6069](https://avd.aquasec.com/nvd/cve-2025-6069)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "e1e4587e-5f2f-40e6-8091-e7d47fe1dc3f"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2025-6069"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "45636679-c3cc-4607-b1f7-428bef64be1d",
+            "title": "Trivy: CVE-2025-6075",
+            "description": "Package: python3.11-minimal\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2025-6075\nSeverity: MEDIUM\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2025-6075](https://avd.aquasec.com/nvd/cve-2025-6075)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "1d4d5896-66a5-4b6d-879e-ddf43b6c9ca6"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2025-6075"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "332762ff-77fb-410b-ba8d-8b290b6c2bdc",
+            "title": "Trivy: CVE-2025-8291",
+            "description": "Package: python3.11-minimal\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2025-8291\nSeverity: MEDIUM\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2025-8291](https://avd.aquasec.com/nvd/cve-2025-8291)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "f91acb01-2332-4862-88b9-27f8f4a5e05f"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2025-8291"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "27fdcb53-7b6c-4cf6-8629-8ee72070ef76",
+            "title": "Trivy: CVE-2026-0672",
+            "description": "Package: python3.11-minimal\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2026-0672\nSeverity: MEDIUM\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2026-0672](https://avd.aquasec.com/nvd/cve-2026-0672)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "bed59dce-cf21-4f5d-9454-64fe16740046"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2026-0672"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "cf7c5039-9078-4a98-b7ab-e06bb7b2f85e",
+            "title": "Trivy: CVE-2026-0865",
+            "description": "Package: python3.11-minimal\nInstalled Version: 3.11.2-6+deb12u6\nVulnerability CVE-2026-0865\nSeverity: MEDIUM\nFixed Version: 3.11.2-6+deb12u7\nLink: [CVE-2026-0865](https://avd.aquasec.com/nvd/cve-2026-0865)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "abb16031-31db-4353-a36d-e19327622d40"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2026-0865"
+              },
+              {
+                "name": "location",
+                "value": "joserodriguezthe1/medvault-ato/medvault"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "a49f5cd8-0cc5-4388-a323-1fed58494864",
+            "title": "Trivy: CVE-2024-47874",
+            "description": "Package: starlette\nInstalled Version: 0.38.6\nVulnerability CVE-2024-47874\nSeverity: HIGH\nFixed Version: 0.40.0\nLink: [CVE-2024-47874](https://avd.aquasec.com/nvd/cve-2024-47874)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "e7bf1582-daa5-4047-bcb4-dd9fc65efa87"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2024-47874"
+              },
+              {
+                "name": "location",
+                "value": "packages/starlette-0.38.6.dist-info/METADATA"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          },
+          {
+            "uuid": "faa1bdbc-fb04-455e-ab1d-c42a85acd4af",
+            "title": "Trivy: CVE-2025-54121",
+            "description": "Package: starlette\nInstalled Version: 0.38.6\nVulnerability CVE-2025-54121\nSeverity: MEDIUM\nFixed Version: 0.47.2\nLink: [CVE-2025-54121](https://avd.aquasec.com/nvd/cve-2025-54121)",
+            "methods": [
+              "TEST-AUTOMATED"
+            ],
+            "types": [
+              "finding"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "tool",
+                    "actor-uuid": "f8e77421-16ff-421c-b371-81cbe8158c8d"
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "name": "tool",
+                "value": "Trivy"
+              },
+              {
+                "name": "rule-id",
+                "value": "CVE-2025-54121"
+              },
+              {
+                "name": "location",
+                "value": "packages/starlette-0.38.6.dist-info/METADATA"
+              }
+            ],
+            "collected": "2026-05-17T17:12:58Z"
+          }
+        ],
+        "findings": [
+          {
+            "uuid": "648af777-5b13-469f-a237-0dc389bf5221",
+            "title": "CVE-2026-0861 affects RA-5",
+            "description": "Trivy reported 'CVE-2026-0861' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "cc32410f-dfa0-424a-845c-017ef254a2fd"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "high"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "af5ad028-0a43-4d5a-9225-1a438646d291",
+            "title": "CVE-2026-0861 affects SI-2",
+            "description": "Trivy reported 'CVE-2026-0861' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "cc32410f-dfa0-424a-845c-017ef254a2fd"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "high"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "3f92eef3-5d2c-4c0f-9ea3-0bee1538d8d3",
+            "title": "CVE-2025-15281 affects RA-5",
+            "description": "Trivy reported 'CVE-2025-15281' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "b05a2d17-88ee-4426-970d-66d29205501f"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "28551890-2c69-40af-8372-8b0f2364a6fd",
+            "title": "CVE-2025-15281 affects SI-2",
+            "description": "Trivy reported 'CVE-2025-15281' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "b05a2d17-88ee-4426-970d-66d29205501f"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "353d8966-a0dd-4635-93e2-1e62a2332e69",
+            "title": "CVE-2026-0915 affects RA-5",
+            "description": "Trivy reported 'CVE-2026-0915' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "73d0c90e-adef-4817-b3c7-801e42011a4c"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "7c071bcf-e312-4cbf-b43f-21be3cce54bd",
+            "title": "CVE-2026-0915 affects SI-2",
+            "description": "Trivy reported 'CVE-2026-0915' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "73d0c90e-adef-4817-b3c7-801e42011a4c"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "7bac3a15-788b-4a93-af61-d19cfb52b61e",
+            "title": "CVE-2026-4046 affects RA-5",
+            "description": "Trivy reported 'CVE-2026-4046' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "09a81b27-49dd-4d4a-a997-30d132c94329"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "b8c5d180-5656-4e1c-92af-2467e7643034",
+            "title": "CVE-2026-4046 affects SI-2",
+            "description": "Trivy reported 'CVE-2026-4046' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "09a81b27-49dd-4d4a-a997-30d132c94329"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "458d8978-7e31-40e9-a65a-3d8ce7a12af8",
+            "title": "CVE-2026-4437 affects RA-5",
+            "description": "Trivy reported 'CVE-2026-4437' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "ad60cc07-1764-40a5-b1ec-3a999a135d7c"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "57267afe-5089-4c1d-b23a-48a7cdb80f3b",
+            "title": "CVE-2026-4437 affects SI-2",
+            "description": "Trivy reported 'CVE-2026-4437' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "ad60cc07-1764-40a5-b1ec-3a999a135d7c"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "fec36204-9ce8-41eb-879d-19ea0ca4eb96",
+            "title": "CVE-2026-4438 affects RA-5",
+            "description": "Trivy reported 'CVE-2026-4438' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "56acd05e-f701-46a9-a7d1-f1556ad40e82"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "8392272c-5c3b-417b-bb19-a66962f53c21",
+            "title": "CVE-2026-4438 affects SI-2",
+            "description": "Trivy reported 'CVE-2026-4438' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "56acd05e-f701-46a9-a7d1-f1556ad40e82"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "badd2ea2-d71c-48b8-a44a-70c3dc88c277",
+            "title": "CVE-2025-13836 affects RA-5",
+            "description": "Trivy reported 'CVE-2025-13836' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "fdc93ea5-be16-41df-998b-b3c996671b25"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "high"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "64e2ba00-f0c0-48a5-b90f-0c86ebdaca4c",
+            "title": "CVE-2025-13836 affects SI-2",
+            "description": "Trivy reported 'CVE-2025-13836' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "fdc93ea5-be16-41df-998b-b3c996671b25"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "high"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "e8b29a5a-fd49-4161-a247-9bc70412b145",
+            "title": "CVE-2025-8194 affects RA-5",
+            "description": "Trivy reported 'CVE-2025-8194' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "3b1cc91a-78b3-4b8d-b6e1-349277413ae8"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "high"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "70c6e5d3-cde3-4dfe-bf0b-77d7dba25791",
+            "title": "CVE-2025-8194 affects SI-2",
+            "description": "Trivy reported 'CVE-2025-8194' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "3b1cc91a-78b3-4b8d-b6e1-349277413ae8"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "high"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "a5478199-a1c8-44eb-be4b-d2b6e5723cc0",
+            "title": "CVE-2026-1299 affects RA-5",
+            "description": "Trivy reported 'CVE-2026-1299' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "ade901f2-5a17-4cc5-b1be-0f708b17cefb"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "high"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "1f519d6f-688f-44ef-be0a-e453bf3643c5",
+            "title": "CVE-2026-1299 affects SI-2",
+            "description": "Trivy reported 'CVE-2026-1299' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "ade901f2-5a17-4cc5-b1be-0f708b17cefb"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "high"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "5f72d17b-ba93-43f8-86ca-64c46585bf40",
+            "title": "CVE-2025-11468 affects RA-5",
+            "description": "Trivy reported 'CVE-2025-11468' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "3c57b42b-540e-40e0-a22b-14e08b954fe7"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "6e155ed3-dc5c-4c7b-a862-d0f7167987e6",
+            "title": "CVE-2025-11468 affects SI-2",
+            "description": "Trivy reported 'CVE-2025-11468' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "3c57b42b-540e-40e0-a22b-14e08b954fe7"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "244c1f7e-ac7f-4e98-ad50-231161aa159d",
+            "title": "CVE-2025-12084 affects RA-5",
+            "description": "Trivy reported 'CVE-2025-12084' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "c1f1d3f2-6504-414f-aed6-88f55d919ea0"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "4a9fd207-b08d-4278-8b75-6bb0826241f4",
+            "title": "CVE-2025-12084 affects SI-2",
+            "description": "Trivy reported 'CVE-2025-12084' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "c1f1d3f2-6504-414f-aed6-88f55d919ea0"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "b6a13402-7399-42e1-9883-fc23c2d80f60",
+            "title": "CVE-2025-13837 affects RA-5",
+            "description": "Trivy reported 'CVE-2025-13837' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "30a454a4-cd1b-4458-8507-34481b89fe1a"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "3f9d48db-3173-4a14-ac05-4fe75093497b",
+            "title": "CVE-2025-13837 affects SI-2",
+            "description": "Trivy reported 'CVE-2025-13837' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "30a454a4-cd1b-4458-8507-34481b89fe1a"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "2de9be07-cd45-4273-a611-80e4b9b289b6",
+            "title": "CVE-2025-15282 affects RA-5",
+            "description": "Trivy reported 'CVE-2025-15282' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "f1ec2690-68db-4826-8d88-45bf3b781171"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "4d82112f-4a48-4c6d-aa4f-e76504b84cb3",
+            "title": "CVE-2025-15282 affects SI-2",
+            "description": "Trivy reported 'CVE-2025-15282' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "f1ec2690-68db-4826-8d88-45bf3b781171"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "2c042457-ce1d-48a6-8c11-ae29ed2c68c9",
+            "title": "CVE-2025-4516 affects RA-5",
+            "description": "Trivy reported 'CVE-2025-4516' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "835a9b35-2e16-4b79-bbef-fe63318a6870"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "b4ca3b8b-a4a5-44f2-b5ac-4add3ad22b18",
+            "title": "CVE-2025-4516 affects SI-2",
+            "description": "Trivy reported 'CVE-2025-4516' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "835a9b35-2e16-4b79-bbef-fe63318a6870"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "c5b88b3a-acd0-4081-bbad-e4212f872b89",
+            "title": "CVE-2025-6069 affects RA-5",
+            "description": "Trivy reported 'CVE-2025-6069' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "3bf61603-ee94-4e38-a370-81cbb2929a20"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "c4e24258-b28c-4661-82c1-8b4486fe8f6b",
+            "title": "CVE-2025-6069 affects SI-2",
+            "description": "Trivy reported 'CVE-2025-6069' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "3bf61603-ee94-4e38-a370-81cbb2929a20"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "15b6eff3-a468-499e-9779-7e7a17638ca1",
+            "title": "CVE-2025-6075 affects RA-5",
+            "description": "Trivy reported 'CVE-2025-6075' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "2864f2e5-83bc-433a-8758-95fbb156684c"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "603ffcad-fbd7-406a-88a2-712f7421f306",
+            "title": "CVE-2025-6075 affects SI-2",
+            "description": "Trivy reported 'CVE-2025-6075' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "2864f2e5-83bc-433a-8758-95fbb156684c"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "984f83d7-0d95-437b-a49a-a47e94c0db4b",
+            "title": "CVE-2025-8291 affects RA-5",
+            "description": "Trivy reported 'CVE-2025-8291' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "f67440e5-8ea7-4569-9a38-9da0bc53de2e"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "6db9a6be-cd29-43dd-9017-1dbf2703a997",
+            "title": "CVE-2025-8291 affects SI-2",
+            "description": "Trivy reported 'CVE-2025-8291' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "f67440e5-8ea7-4569-9a38-9da0bc53de2e"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "dae7e125-5914-42d6-9693-99b245658526",
+            "title": "CVE-2026-0672 affects RA-5",
+            "description": "Trivy reported 'CVE-2026-0672' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "67ded103-5379-4d7a-87df-f56a9ae0fb8b"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "6e398ea2-e2cf-4b30-8785-b2981070ab0c",
+            "title": "CVE-2026-0672 affects SI-2",
+            "description": "Trivy reported 'CVE-2026-0672' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "67ded103-5379-4d7a-87df-f56a9ae0fb8b"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "36a0fb70-436c-4d26-93b3-87e01aaf88d8",
+            "title": "CVE-2026-0865 affects RA-5",
+            "description": "Trivy reported 'CVE-2026-0865' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "3fd49de1-ff9e-49d2-be35-585aa871f35f"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "1a52bb33-462e-4602-a343-3441d6e17245",
+            "title": "CVE-2026-0865 affects SI-2",
+            "description": "Trivy reported 'CVE-2026-0865' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "3fd49de1-ff9e-49d2-be35-585aa871f35f"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "1ef6d794-d1ae-46b2-84be-c849f99fa288",
+            "title": "CVE-2025-13836 affects RA-5",
+            "description": "Trivy reported 'CVE-2025-13836' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "38998424-98ce-4ae4-976c-6a7ab739ff9a"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "high"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "93677d72-b83f-4e38-a672-c5948ff8ee91",
+            "title": "CVE-2025-13836 affects SI-2",
+            "description": "Trivy reported 'CVE-2025-13836' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "38998424-98ce-4ae4-976c-6a7ab739ff9a"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "high"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "e643c9dc-a50b-426f-ba16-99927b447d74",
+            "title": "CVE-2025-8194 affects RA-5",
+            "description": "Trivy reported 'CVE-2025-8194' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "0cd1fcf8-7684-4dc6-abba-a864813018fa"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "high"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "dd97eaa3-10d5-41d8-b1ea-c960f77c9ee9",
+            "title": "CVE-2025-8194 affects SI-2",
+            "description": "Trivy reported 'CVE-2025-8194' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "0cd1fcf8-7684-4dc6-abba-a864813018fa"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "high"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "f78115ec-5661-4eb3-8bcb-e1b99cee9783",
+            "title": "CVE-2026-1299 affects RA-5",
+            "description": "Trivy reported 'CVE-2026-1299' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "2e29a8bc-50ae-4b81-8cc0-d9aea3ab67e9"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "high"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "185ddf84-58c0-438c-9f9c-5a09c152b6d9",
+            "title": "CVE-2026-1299 affects SI-2",
+            "description": "Trivy reported 'CVE-2026-1299' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "2e29a8bc-50ae-4b81-8cc0-d9aea3ab67e9"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "high"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "932eaa38-e95c-4c09-a1b5-a2a1b559e63d",
+            "title": "CVE-2025-11468 affects RA-5",
+            "description": "Trivy reported 'CVE-2025-11468' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "b93730c2-03cf-4119-a36a-6ead73f54325"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "85ac402b-1584-470b-beda-7c3576b6b14c",
+            "title": "CVE-2025-11468 affects SI-2",
+            "description": "Trivy reported 'CVE-2025-11468' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "b93730c2-03cf-4119-a36a-6ead73f54325"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "58e5c4e3-d886-4eea-a944-b3d534f73d94",
+            "title": "CVE-2025-12084 affects RA-5",
+            "description": "Trivy reported 'CVE-2025-12084' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "ebf27cda-84de-46a5-bdd9-5b3a75709b62"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "df703793-3b5d-4e79-bfe7-ca93fca1b7c2",
+            "title": "CVE-2025-12084 affects SI-2",
+            "description": "Trivy reported 'CVE-2025-12084' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "ebf27cda-84de-46a5-bdd9-5b3a75709b62"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "deb9a289-31aa-444d-aeb6-d7b6bf6ca509",
+            "title": "CVE-2025-13837 affects RA-5",
+            "description": "Trivy reported 'CVE-2025-13837' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "7fd7289e-95c4-48bc-a81e-19212e282bdc"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "151c114b-d4f0-4194-b440-14700d97e438",
+            "title": "CVE-2025-13837 affects SI-2",
+            "description": "Trivy reported 'CVE-2025-13837' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "7fd7289e-95c4-48bc-a81e-19212e282bdc"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "5ba37809-191f-4e8c-bbb1-a3f540e7274a",
+            "title": "CVE-2025-15282 affects RA-5",
+            "description": "Trivy reported 'CVE-2025-15282' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "d32d5df3-d035-4288-9a1c-24ed1c81e2ab"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "d01f29e5-4240-49d2-96bb-f9ec5bc54b54",
+            "title": "CVE-2025-15282 affects SI-2",
+            "description": "Trivy reported 'CVE-2025-15282' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "d32d5df3-d035-4288-9a1c-24ed1c81e2ab"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "72afe3d7-35c5-494d-9551-e644508567a0",
+            "title": "CVE-2025-4516 affects RA-5",
+            "description": "Trivy reported 'CVE-2025-4516' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "d4c95f03-7f77-4bf8-8e9f-4b9000f6c4c1"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "3448dac4-f17d-48a1-aaa6-044e9f9e0785",
+            "title": "CVE-2025-4516 affects SI-2",
+            "description": "Trivy reported 'CVE-2025-4516' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "d4c95f03-7f77-4bf8-8e9f-4b9000f6c4c1"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "cdfabc04-b4da-4aa1-a584-657af6329a6d",
+            "title": "CVE-2025-6069 affects RA-5",
+            "description": "Trivy reported 'CVE-2025-6069' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "99cfdf49-6f9d-4a09-88f1-ea4fb10a783c"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "c09bf389-11fd-456b-b9b1-5661e1e3b8b8",
+            "title": "CVE-2025-6069 affects SI-2",
+            "description": "Trivy reported 'CVE-2025-6069' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "99cfdf49-6f9d-4a09-88f1-ea4fb10a783c"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "21fa5e65-c6aa-42ee-a9d1-61683988f16b",
+            "title": "CVE-2025-6075 affects RA-5",
+            "description": "Trivy reported 'CVE-2025-6075' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "26aa3d8e-14a6-4a1b-9f1d-1c9bcc82b5e9"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "943f4a80-833b-4ba0-9674-32c1122e5906",
+            "title": "CVE-2025-6075 affects SI-2",
+            "description": "Trivy reported 'CVE-2025-6075' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "26aa3d8e-14a6-4a1b-9f1d-1c9bcc82b5e9"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "92869333-53ac-4fe0-9404-5b39d9002c08",
+            "title": "CVE-2025-8291 affects RA-5",
+            "description": "Trivy reported 'CVE-2025-8291' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "bc729fb7-80d1-4f4f-be7e-e646a5bbe36e"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "c3ba077f-4369-4fb5-91bf-cfc12d7f871e",
+            "title": "CVE-2025-8291 affects SI-2",
+            "description": "Trivy reported 'CVE-2025-8291' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "bc729fb7-80d1-4f4f-be7e-e646a5bbe36e"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "5bfc4b44-4095-4b9f-a599-3a45470f44f1",
+            "title": "CVE-2026-0672 affects RA-5",
+            "description": "Trivy reported 'CVE-2026-0672' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "9b4f9fe7-13a0-4863-b57e-c0aa2df23639"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "bc1cb3cb-d08a-4b1e-b143-79f435d0b438",
+            "title": "CVE-2026-0672 affects SI-2",
+            "description": "Trivy reported 'CVE-2026-0672' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "9b4f9fe7-13a0-4863-b57e-c0aa2df23639"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "f1088639-c632-43da-a14e-e6617dfd06fc",
+            "title": "CVE-2026-0865 affects RA-5",
+            "description": "Trivy reported 'CVE-2026-0865' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "9142b974-b427-443a-a232-46a1ca518d78"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "ffdac14c-bf9d-47bc-8320-8d380e8a6ec0",
+            "title": "CVE-2026-0865 affects SI-2",
+            "description": "Trivy reported 'CVE-2026-0865' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "9142b974-b427-443a-a232-46a1ca518d78"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "49e901a4-692a-4097-bc9b-d67abe223db7",
+            "title": "CVE-2025-13836 affects RA-5",
+            "description": "Trivy reported 'CVE-2025-13836' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "b4953773-a244-4487-9bf4-8e5a53c82c37"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "high"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "4c72a932-b7f2-4792-b6a8-244de7ca454c",
+            "title": "CVE-2025-13836 affects SI-2",
+            "description": "Trivy reported 'CVE-2025-13836' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "b4953773-a244-4487-9bf4-8e5a53c82c37"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "high"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "e267e612-1230-4f92-a5b3-7be5038af533",
+            "title": "CVE-2025-8194 affects RA-5",
+            "description": "Trivy reported 'CVE-2025-8194' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "ad5bab17-ccd3-4512-bd94-6d7ad52eb783"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "high"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "f52c34cf-2b9d-4d40-965f-db7c924496f3",
+            "title": "CVE-2025-8194 affects SI-2",
+            "description": "Trivy reported 'CVE-2025-8194' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "ad5bab17-ccd3-4512-bd94-6d7ad52eb783"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "high"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "d9b9479a-06a5-404b-ad3e-9bf4499ef34f",
+            "title": "CVE-2026-1299 affects RA-5",
+            "description": "Trivy reported 'CVE-2026-1299' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "986fa4b8-46ac-449f-8d17-ed692010b710"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "high"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "2a8785ee-41a0-41ef-bd86-7543c241319d",
+            "title": "CVE-2026-1299 affects SI-2",
+            "description": "Trivy reported 'CVE-2026-1299' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "986fa4b8-46ac-449f-8d17-ed692010b710"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "high"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "0173a29f-49d9-49ba-8710-34ec54396584",
+            "title": "CVE-2025-11468 affects RA-5",
+            "description": "Trivy reported 'CVE-2025-11468' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "4837c895-1626-4d82-b001-f4554b5f8f1e"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "846b925c-af4e-4d52-af8b-59f9bcc09d06",
+            "title": "CVE-2025-11468 affects SI-2",
+            "description": "Trivy reported 'CVE-2025-11468' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "4837c895-1626-4d82-b001-f4554b5f8f1e"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "fc9b1a36-548b-48d3-846b-45b4d0267824",
+            "title": "CVE-2025-12084 affects RA-5",
+            "description": "Trivy reported 'CVE-2025-12084' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "cd2650f0-bb07-4dc9-a399-27096c224aa2"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "a10f0c0f-1941-4813-a11e-4085aaa3dc41",
+            "title": "CVE-2025-12084 affects SI-2",
+            "description": "Trivy reported 'CVE-2025-12084' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "cd2650f0-bb07-4dc9-a399-27096c224aa2"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "e2169f9e-457d-4994-9f85-a39dfd4c458a",
+            "title": "CVE-2025-13837 affects RA-5",
+            "description": "Trivy reported 'CVE-2025-13837' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "c5899197-62a0-4536-8f26-d670b4272235"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "20794104-25dc-47fd-b4d5-00e80b802999",
+            "title": "CVE-2025-13837 affects SI-2",
+            "description": "Trivy reported 'CVE-2025-13837' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "c5899197-62a0-4536-8f26-d670b4272235"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "8997bd87-ba5a-45c5-8384-02a9366558a0",
+            "title": "CVE-2025-15282 affects RA-5",
+            "description": "Trivy reported 'CVE-2025-15282' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "6364c986-f990-489a-b2ca-0ab51ce4f6bc"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "1babd6e4-4bc4-4497-aa6a-1b69c643e984",
+            "title": "CVE-2025-15282 affects SI-2",
+            "description": "Trivy reported 'CVE-2025-15282' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "6364c986-f990-489a-b2ca-0ab51ce4f6bc"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "3d19ccfa-820f-4834-a90d-30162e984f97",
+            "title": "CVE-2025-4516 affects RA-5",
+            "description": "Trivy reported 'CVE-2025-4516' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "17519dac-19c5-4fa3-b8e0-5d9886ece13f"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "5969b575-46bb-4cc3-aa5a-a1158ffb23f8",
+            "title": "CVE-2025-4516 affects SI-2",
+            "description": "Trivy reported 'CVE-2025-4516' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "17519dac-19c5-4fa3-b8e0-5d9886ece13f"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "63ece1ce-dd9a-4ce4-afb2-feb4a239b18d",
+            "title": "CVE-2025-6069 affects RA-5",
+            "description": "Trivy reported 'CVE-2025-6069' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "bc475e85-7681-4cf1-9a63-6214365f5596"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "91948811-acb6-425d-9801-7f5627b56877",
+            "title": "CVE-2025-6069 affects SI-2",
+            "description": "Trivy reported 'CVE-2025-6069' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "bc475e85-7681-4cf1-9a63-6214365f5596"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "3aee45a4-1402-427d-ad15-fa674563e9c3",
+            "title": "CVE-2025-6075 affects RA-5",
+            "description": "Trivy reported 'CVE-2025-6075' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "45636679-c3cc-4607-b1f7-428bef64be1d"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "612b3638-6f9f-43f3-8054-5b2c0215080a",
+            "title": "CVE-2025-6075 affects SI-2",
+            "description": "Trivy reported 'CVE-2025-6075' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "45636679-c3cc-4607-b1f7-428bef64be1d"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "f83b3b89-070c-4176-a414-475dd0ca7c94",
+            "title": "CVE-2025-8291 affects RA-5",
+            "description": "Trivy reported 'CVE-2025-8291' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "332762ff-77fb-410b-ba8d-8b290b6c2bdc"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "c93ff067-22df-478a-a984-0c9c75d0e1cf",
+            "title": "CVE-2025-8291 affects SI-2",
+            "description": "Trivy reported 'CVE-2025-8291' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "332762ff-77fb-410b-ba8d-8b290b6c2bdc"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "445c8721-e49f-454c-92e0-9f41ab7791f5",
+            "title": "CVE-2026-0672 affects RA-5",
+            "description": "Trivy reported 'CVE-2026-0672' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "27fdcb53-7b6c-4cf6-8629-8ee72070ef76"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "489f4176-7309-4afa-90db-27f523435489",
+            "title": "CVE-2026-0672 affects SI-2",
+            "description": "Trivy reported 'CVE-2026-0672' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "27fdcb53-7b6c-4cf6-8629-8ee72070ef76"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "2fe4c34b-9120-4244-a8d5-30e528b8a13e",
+            "title": "CVE-2026-0865 affects RA-5",
+            "description": "Trivy reported 'CVE-2026-0865' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "cf7c5039-9078-4a98-b7ab-e06bb7b2f85e"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "9b18093c-9638-44e7-ab76-76a2af5d320f",
+            "title": "CVE-2026-0865 affects SI-2",
+            "description": "Trivy reported 'CVE-2026-0865' against joserodriguezthe1/medvault-ato/medvault. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "cf7c5039-9078-4a98-b7ab-e06bb7b2f85e"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "73964d11-d60b-47a1-b947-4a9e786e20b0",
+            "title": "CVE-2024-47874 affects RA-5",
+            "description": "Trivy reported 'CVE-2024-47874' against packages/starlette-0.38.6.dist-info/METADATA. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "a49f5cd8-0cc5-4388-a323-1fed58494864"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "high"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "a806f306-8928-417e-887a-6becd4aaa0ca",
+            "title": "CVE-2024-47874 affects SI-2",
+            "description": "Trivy reported 'CVE-2024-47874' against packages/starlette-0.38.6.dist-info/METADATA. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "a49f5cd8-0cc5-4388-a323-1fed58494864"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "high"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          },
+          {
+            "uuid": "75aa4dbb-4ec4-4137-a2ba-cbf2a2c93ee8",
+            "title": "CVE-2025-54121 affects RA-5",
+            "description": "Trivy reported 'CVE-2025-54121' against packages/starlette-0.38.6.dist-info/METADATA. This is mapped to control RA-5.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "faa1bdbc-fb04-455e-ab1d-c42a85acd4af"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "ra-5"
+              }
+            ]
+          },
+          {
+            "uuid": "6b75ef4e-d772-44ca-b134-544ef5ea9761",
+            "title": "CVE-2025-54121 affects SI-2",
+            "description": "Trivy reported 'CVE-2025-54121' against packages/starlette-0.38.6.dist-info/METADATA. This is mapped to control SI-2.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "faa1bdbc-fb04-455e-ab1d-c42a85acd4af"
+              }
+            ],
+            "props": [
+              {
+                "name": "severity",
+                "value": "medium"
+              },
+              {
+                "name": "control-id",
+                "value": "si-2"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
