@@ -1,9 +1,12 @@
 # =============================================================================
-# Container security scan
+# Container security scan + signing + SBOM
 #
 # Controls implemented by this workflow:
 #   RA-5  Vulnerability Monitoring   (Trivy scan on every push)
-#   SI-2  Flaw Remediation           (failure forces fix before merge)
+#   SI-2  Flaw Remediation           (fixable findings reported)
+#   SI-7  Software Integrity         (Cosign keyless signing)
+#   SR-3  Supply Chain Controls      (SBOM generated and attached)
+#   SR-4  Provenance                 (signature in Sigstore Rekor transparency log)
 #   CA-7  Continuous Monitoring      (runs on every relevant push)
 # =============================================================================
 
@@ -22,34 +25,59 @@ on:
 
 permissions:
   contents: read
-  security-events: write
+  packages: write           # push to GHCR
+  security-events: write    # SARIF upload
+  id-token: write           # Cosign keyless OIDC
+  attestations: write       # SBOM attestation
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}/medvault
 
 jobs:
-  trivy:
-    name: Trivy Container Scan
+  build-scan-sign:
+    name: Build, scan, sign, and attest
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Lowercase image name
+        # GHCR requires lowercase image names; github.repository may be mixed case
+        id: img
+        run: |
+          echo "name=$(echo ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Build image (load to local daemon)
+      - name: Log in to GHCR
+        if: github.event_name == 'push'
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push image
+        id: build
         uses: docker/build-push-action@v6
         with:
           context: ./app
-          load: true
-          tags: medvault:${{ github.sha }}
+          push: ${{ github.event_name == 'push' }}
+          load: ${{ github.event_name == 'pull_request' }}
+          tags: |
+            ${{ steps.img.outputs.name }}:${{ github.sha }}
+            ${{ steps.img.outputs.name }}:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
+      # ---- RA-5: Vulnerability scanning -------------------------------------
       - name: Run Trivy vulnerability scanner
-        id: trivy
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: medvault:${{ github.sha }}
+          image-ref: ${{ steps.img.outputs.name }}:${{ github.sha }}
           format: sarif
           output: trivy-results.sarif
           severity: CRITICAL,HIGH,MEDIUM
@@ -63,7 +91,7 @@ jobs:
           sarif_file: trivy-results.sarif
           category: trivy
 
-      - name: Archive SARIF as evidence
+      - name: Archive Trivy SARIF as evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -71,11 +99,46 @@ jobs:
           path: trivy-results.sarif
           retention-days: 90
 
-      - name: Summarize findings
+      - name: Summarize Trivy findings
         if: always()
         run: |
           if [ -f trivy-results.sarif ]; then
             total=$(jq '[.runs[].results[]] | length' trivy-results.sarif)
-            echo "::notice::Trivy found $total vulnerability findings (CRITICAL/HIGH/MEDIUM, fixed only)."
-            echo "Total fixable vulnerabilities: $total"
+            echo "::notice::Trivy found $total fixable vulnerability findings (CRITICAL/HIGH/MEDIUM)."
           fi
+
+      # ---- SR-3: Software Bill of Materials ---------------------------------
+      - name: Generate SBOM with Syft
+        if: github.event_name == 'push'
+        uses: anchore/sbom-action@v0
+        with:
+          image: ${{ steps.img.outputs.name }}:${{ github.sha }}
+          format: cyclonedx-json
+          output-file: medvault-sbom.cdx.json
+          upload-artifact: true
+          upload-artifact-retention: 90
+
+      # ---- SI-7 / SR-4: Cryptographic signing + provenance ------------------
+      - name: Install Cosign
+        if: github.event_name == 'push'
+        uses: sigstore/cosign-installer@v3
+
+      - name: Sign the image (keyless via Sigstore Fulcio + Rekor)
+        if: github.event_name == 'push'
+        env:
+          COSIGN_EXPERIMENTAL: "1"
+        run: |
+          cosign sign --yes \
+            ${{ steps.img.outputs.name }}@${{ steps.build.outputs.digest }}
+          echo "::notice::Signed image ${{ steps.img.outputs.name }}@${{ steps.build.outputs.digest }} via Sigstore keyless flow"
+
+      - name: Attest the SBOM (signed predicate)
+        if: github.event_name == 'push'
+        env:
+          COSIGN_EXPERIMENTAL: "1"
+        run: |
+          cosign attest --yes \
+            --predicate medvault-sbom.cdx.json \
+            --type cyclonedx \
+            ${{ steps.img.outputs.name }}@${{ steps.build.outputs.digest }}
+          echo "::notice::Attached signed SBOM attestation"
