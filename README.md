@@ -112,7 +112,7 @@ A second pipeline (``container-scan``) covers the application and supply-chain s
 7. SARIF flows to GitHub Security tab and is transformed into OSCAL Assessment Results
 8. Bot commits the OSCAL document back to ``main``
 
-### Controls added in Phase 11
+### Controls
 
 | Control | Implementation | Evidence |
 |---|---|---|
@@ -135,7 +135,7 @@ cosign verify ghcr.io/joserodriguezthe1/medvault-ato/medvault:latest \
 
 Returns the signature, the Fulcio certificate, and the Rekor transparency log entry - proving the image was built by this exact workflow at a specific commit.
 
-### Phase 11 screenshots
+### Screenshots
 
 ![Two scanners](docs/screenshots/security-tab-two-scanners.png)
 ![Trivy finding](docs/screenshots/trivy-finding-detail.png)
