@@ -1,0 +1,336 @@
+{
+  "system-security-plan": {
+    "uuid": "s1000000-0000-0000-0000-000000000001",
+    "metadata": {
+      "title": "MedVault System Security Plan",
+      "last-modified": "2026-05-19T00:00:00Z",
+      "version": "0.1.0",
+      "oscal-version": "1.1.2",
+      "roles": [
+        { "id": "system-owner", "title": "System Owner" },
+        { "id": "isso", "title": "Information System Security Officer" },
+        { "id": "ao", "title": "Authorizing Official" }
+      ],
+      "parties": [
+        {
+          "uuid": "s2000000-0000-0000-0000-000000000001",
+          "type": "organization",
+          "name": "MedVault Program Office (fictional)",
+          "short-name": "MVPO"
+        },
+        {
+          "uuid": "s2000000-0000-0000-0000-000000000002",
+          "type": "person",
+          "name": "Jose Rodriguez",
+          "remarks": "Project author and acting ISSO for portfolio purposes"
+        }
+      ],
+      "responsible-parties": [
+        { "role-id": "system-owner", "party-uuids": ["s2000000-0000-0000-0000-000000000001"] },
+        { "role-id": "isso", "party-uuids": ["s2000000-0000-0000-0000-000000000002"] }
+      ],
+      "remarks": "Portfolio demonstration artifact. The MedVault system is fictional; no real federal authorization is represented."
+    },
+
+    "import-profile": {
+      "href": "../profiles/medvault-fedramp-moderate.json"
+    },
+
+    "system-characteristics": {
+      "system-ids": [
+        {
+          "id": "medvault-prod",
+          "identifier-type": "https://fedramp.gov"
+        }
+      ],
+      "system-name": "MedVault Public Health Reporting API",
+      "system-name-short": "MedVault",
+      "description": "A federal civilian SaaS API for state and local health departments to submit jurisdiction-level public-health reports. The system ingests structured surveillance data, encrypts it at rest using AWS KMS customer-managed keys, and exposes audit-grade access logs for compliance evidence.",
+      "security-sensitivity-level": "moderate",
+      "system-information": {
+        "information-types": [
+          {
+            "uuid": "s3000000-0000-0000-0000-000000000001",
+            "title": "Public Health Surveillance Records",
+            "description": "Jurisdiction-level health indicator counts submitted by state and local public health departments. Aggregate, non-identifying surveillance data.",
+            "categorizations": [
+              {
+                "system": "https://doi.org/10.6028/NIST.SP.800-60v2r1",
+                "information-type-ids": ["C.2.4.1"]
+              }
+            ],
+            "confidentiality-impact": {
+              "base": "fips-199-moderate"
+            },
+            "integrity-impact": {
+              "base": "fips-199-moderate"
+            },
+            "availability-impact": {
+              "base": "fips-199-moderate"
+            }
+          }
+        ]
+      },
+      "security-impact-level": {
+        "security-objective-confidentiality": "fips-199-moderate",
+        "security-objective-integrity": "fips-199-moderate",
+        "security-objective-availability": "fips-199-moderate"
+      },
+      "status": {
+        "state": "under-development",
+        "remarks": "Portfolio demonstration. No real federal operations."
+      },
+      "authorization-boundary": {
+        "description": "The MedVault authorization boundary includes: (a) AWS S3 buckets (reports and access-logs) in us-east-1; (b) the AWS KMS customer-managed key encrypting bucket contents; (c) the GitHub Container Registry hosting the signed application image; (d) the GitHub Actions CI/CD pipelines (terraform-scan, container-scan); (e) the FastAPI application packaged in a hardened distroless container. The boundary excludes the AWS control plane itself (inherited from AWS FedRAMP authorization) and the GitHub platform itself (inherited from GitHub's own attestations)."
+      }
+    },
+
+    "system-implementation": {
+      "users": [
+        {
+          "uuid": "s4000000-0000-0000-0000-000000000001",
+          "title": "Terraform Deployment User",
+          "short-name": "terraform-medvault",
+          "description": "AWS IAM user with resource-scoped permissions (s3:* and curated KMS actions on medvault-* resources only). Used by Terraform from local developer workstations to deploy and manage MedVault infrastructure.",
+          "role-ids": ["system-owner"],
+          "authorized-privileges": [
+            {
+              "title": "Manage MedVault AWS resources",
+              "functions-performed": ["create-resources", "modify-resources", "delete-resources"]
+            }
+          ]
+        },
+        {
+          "uuid": "s4000000-0000-0000-0000-000000000002",
+          "title": "github-actions[bot]",
+          "short-name": "github-actions-bot",
+          "description": "GitHub Actions service identity. Authenticates to GHCR via short-lived GITHUB_TOKEN, signs container images via Sigstore Fulcio OIDC, commits OSCAL Assessment Results back to main.",
+          "role-ids": ["system-owner"],
+          "authorized-privileges": [
+            {
+              "title": "Run CI pipeline activities",
+              "functions-performed": ["scan-code", "build-images", "sign-images", "commit-evidence"]
+            }
+          ]
+        }
+      ],
+
+      "components": [
+        {
+          "uuid": "c3000000-0000-0000-0000-000000000001",
+          "type": "software",
+          "title": "MedVault Terraform/AWS Infrastructure",
+          "description": "Imported from component-definitions/terraform-aws.json. See that document for control implementation detail.",
+          "status": { "state": "operational" },
+          "responsible-roles": [
+            { "role-id": "system-owner", "party-uuids": ["s2000000-0000-0000-0000-000000000001"] }
+          ]
+        },
+        {
+          "uuid": "c3000000-0000-0000-0000-000000000002",
+          "type": "service",
+          "title": "MedVault GitHub Actions CI Pipeline",
+          "description": "Imported from component-definitions/github-actions-ci.json. Two workflows providing continuous compliance enforcement.",
+          "status": { "state": "operational" },
+          "responsible-roles": [
+            { "role-id": "system-owner", "party-uuids": ["s2000000-0000-0000-0000-000000000001"] }
+          ]
+        },
+        {
+          "uuid": "c3000000-0000-0000-0000-000000000003",
+          "type": "software",
+          "title": "MedVault FastAPI Application",
+          "description": "Imported from component-definitions/fastapi-app.json. Distroless containerized FastAPI app.",
+          "status": { "state": "operational" },
+          "responsible-roles": [
+            { "role-id": "system-owner", "party-uuids": ["s2000000-0000-0000-0000-000000000001"] }
+          ]
+        }
+      ]
+    },
+
+    "control-implementation": {
+      "description": "Implementation claims for the 13 controls actively implemented by MedVault components. Remaining FedRAMP Moderate controls are either inherited from AWS (for cloud-platform controls) or planned for future phases (documented in the POA&M and roadmap).",
+      "implemented-requirements": [
+        {
+          "uuid": "i1000000-0000-0000-0000-000000000001",
+          "control-id": "ac-6",
+          "by-components": [
+            {
+              "uuid": "i2000000-0000-0000-0000-000000000001",
+              "component-uuid": "c3000000-0000-0000-0000-000000000001",
+              "description": "Resource-scoped IAM least privilege. The Terraform user has s3:* + curated KMS actions scoped to medvault-* resources only. Cannot enumerate or modify resources outside the medvault namespace."
+            },
+            {
+              "uuid": "i2000000-0000-0000-0000-000000000002",
+              "component-uuid": "c3000000-0000-0000-0000-000000000003",
+              "description": "Runtime least privilege via distroless 'nonroot' base image. Container runs as UID 65532:65532, cannot escalate to root or write to system paths."
+            }
+          ]
+        },
+        {
+          "uuid": "i1000000-0000-0000-0000-000000000002",
+          "control-id": "au-2",
+          "by-components": [
+            {
+              "uuid": "i2000000-0000-0000-0000-000000000003",
+              "component-uuid": "c3000000-0000-0000-0000-000000000001",
+              "description": "S3 server access logging enabled on the reports bucket, delivered to a separate access-logs bucket for tamper-resistance."
+            }
+          ]
+        },
+        {
+          "uuid": "i1000000-0000-0000-0000-000000000003",
+          "control-id": "au-3",
+          "by-components": [
+            {
+              "uuid": "i2000000-0000-0000-0000-000000000004",
+              "component-uuid": "c3000000-0000-0000-0000-000000000003",
+              "description": "Structured JSON logs from the FastAPI app include timestamp, level, message, and request_id correlation ID propagated via ContextVar middleware."
+            }
+          ]
+        },
+        {
+          "uuid": "i1000000-0000-0000-0000-000000000004",
+          "control-id": "ca-2",
+          "by-components": [
+            {
+              "uuid": "i2000000-0000-0000-0000-000000000005",
+              "component-uuid": "c3000000-0000-0000-0000-000000000002",
+              "description": "Automated control assessments generated per CI run by scripts/evidence-to-oscal.py, transforming SARIF output into OSCAL Assessment Results, committed back to the repository."
+            }
+          ]
+        },
+        {
+          "uuid": "i1000000-0000-0000-0000-000000000005",
+          "control-id": "ca-7",
+          "by-components": [
+            {
+              "uuid": "i2000000-0000-0000-0000-000000000006",
+              "component-uuid": "c3000000-0000-0000-0000-000000000002",
+              "description": "Continuous monitoring via CI workflows triggered on every push. Both terraform-scan and container-scan pipelines re-assess on each change, producing fresh OSCAL evidence."
+            }
+          ]
+        },
+        {
+          "uuid": "i1000000-0000-0000-0000-000000000006",
+          "control-id": "cm-3",
+          "by-components": [
+            {
+              "uuid": "i2000000-0000-0000-0000-000000000007",
+              "component-uuid": "c3000000-0000-0000-0000-000000000002",
+              "description": "Workflow gate enforces policy: Checkov violations exit non-zero. GitHub branch protection (configured outside OSCAL) provides actual merge enforcement. Marked partial because branch protection is not yet formally screenshotted as evidence."
+            }
+          ]
+        },
+        {
+          "uuid": "i1000000-0000-0000-0000-000000000007",
+          "control-id": "cm-6",
+          "by-components": [
+            {
+              "uuid": "i2000000-0000-0000-0000-000000000008",
+              "component-uuid": "c3000000-0000-0000-0000-000000000001",
+              "description": "Configuration baseline enforced by Checkov: KMS encryption mandatory, public access blocked, TLS-only bucket policy, versioning enabled. Non-compliant Terraform cannot merge."
+            }
+          ]
+        },
+        {
+          "uuid": "i1000000-0000-0000-0000-000000000008",
+          "control-id": "cm-7",
+          "by-components": [
+            {
+              "uuid": "i2000000-0000-0000-0000-000000000009",
+              "component-uuid": "c3000000-0000-0000-0000-000000000003",
+              "description": "Distroless base image. No shell, no apt, no curl, no package manager in the final image. Multi-stage build discards builder stage."
+            }
+          ]
+        },
+        {
+          "uuid": "i1000000-0000-0000-0000-000000000009",
+          "control-id": "ra-5",
+          "by-components": [
+            {
+              "uuid": "i2000000-0000-0000-0000-000000000010",
+              "component-uuid": "c3000000-0000-0000-0000-000000000002",
+              "description": "Two scanners on every push: Checkov for IaC, Trivy for containers. SARIF to GitHub Security tab plus OSCAL Assessment Results for compliance evidence."
+            }
+          ]
+        },
+        {
+          "uuid": "i1000000-0000-0000-0000-000000000010",
+          "control-id": "sa-11",
+          "by-components": [
+            {
+              "uuid": "i2000000-0000-0000-0000-000000000011",
+              "component-uuid": "c3000000-0000-0000-0000-000000000002",
+              "description": "Developer security testing integrated into CI: Checkov SAST for IaC, Trivy composition analysis for container dependencies."
+            }
+          ]
+        },
+        {
+          "uuid": "i1000000-0000-0000-0000-000000000011",
+          "control-id": "sc-13",
+          "by-components": [
+            {
+              "uuid": "i2000000-0000-0000-0000-000000000012",
+              "component-uuid": "c3000000-0000-0000-0000-000000000001",
+              "description": "AWS KMS customer-managed key with annual rotation, SSE-KMS on data bucket. Access logs bucket uses AES256 to avoid circular dependency. POAM-001 tracks adding an explicit key policy."
+            }
+          ]
+        },
+        {
+          "uuid": "i1000000-0000-0000-0000-000000000012",
+          "control-id": "si-7",
+          "by-components": [
+            {
+              "uuid": "i2000000-0000-0000-0000-000000000013",
+              "component-uuid": "c3000000-0000-0000-0000-000000000002",
+              "description": "Cosign keyless signing of every container image. Signature tied to workflow file at specific commit. Anchored in Sigstore Rekor public transparency log. Independently verifiable by anyone."
+            }
+          ]
+        },
+        {
+          "uuid": "i1000000-0000-0000-0000-000000000013",
+          "control-id": "sr-4",
+          "by-components": [
+            {
+              "uuid": "i2000000-0000-0000-0000-000000000014",
+              "component-uuid": "c3000000-0000-0000-0000-000000000002",
+              "description": "Provenance via Cosign keyless signing. Each signing event published to Sigstore Rekor transparency log. The signature certificate identity binds to the exact GitHub Actions workflow that produced the image."
+            }
+          ]
+        }
+      ]
+    },
+
+    "back-matter": {
+      "resources": [
+        {
+          "uuid": "r3000000-0000-0000-0000-000000000001",
+          "title": "MedVault Tailored FedRAMP Moderate Profile",
+          "rlinks": [{ "href": "../profiles/medvault-fedramp-moderate.json" }]
+        },
+        {
+          "uuid": "r3000000-0000-0000-0000-000000000002",
+          "title": "Terraform/AWS Component Definition",
+          "rlinks": [{ "href": "../component-definitions/terraform-aws.json" }]
+        },
+        {
+          "uuid": "r3000000-0000-0000-0000-000000000003",
+          "title": "GitHub Actions CI Component Definition",
+          "rlinks": [{ "href": "../component-definitions/github-actions-ci.json" }]
+        },
+        {
+          "uuid": "r3000000-0000-0000-0000-000000000004",
+          "title": "FastAPI Application Component Definition",
+          "rlinks": [{ "href": "../component-definitions/fastapi-app.json" }]
+        },
+        {
+          "uuid": "r3000000-0000-0000-0000-000000000005",
+          "title": "MedVault Plan of Action and Milestones",
+          "rlinks": [{ "href": "../poam/medvault-poam.json" }]
+        }
+      ]
+    }
+  }
+}
