@@ -1,0 +1,99 @@
+{
+  "component-definition": {
+    "uuid": "c1000000-0000-0000-0000-000000000003",
+    "metadata": {
+      "title": "MedVault FastAPI Application Component Definition",
+      "last-modified": "2026-05-19T00:00:00Z",
+      "version": "0.1.0",
+      "oscal-version": "1.1.2",
+      "roles": [
+        { "id": "app-developer", "title": "Application Developer" },
+        { "id": "isso", "title": "Information System Security Officer" }
+      ],
+      "parties": [
+        {
+          "uuid": "c2000000-0000-0000-0000-000000000003",
+          "type": "person",
+          "name": "Jose Rodriguez",
+          "remarks": "Project author"
+        }
+      ],
+      "responsible-parties": [
+        { "role-id": "app-developer", "party-uuids": ["c2000000-0000-0000-0000-000000000003"] }
+      ],
+      "remarks": "Component Definition for the MedVault FastAPI application and its hardened distroless container. Covers application-layer security controls."
+    },
+
+    "components": [
+      {
+        "uuid": "c3000000-0000-0000-0000-000000000003",
+        "type": "software",
+        "title": "MedVault FastAPI Application",
+        "description": "Python 3.11 FastAPI application providing the MedVault public-health reporting API, packaged in a hardened distroless container image. Three endpoints: /healthz (CP-2 health check), /readyz (readiness probe), /v1/reports (POST endpoint for jurisdiction-level health reports).",
+        "purpose": "Provide the application-layer functionality of MedVault, packaged for minimum attack surface and structured auditability.",
+        "responsible-roles": [
+          { "role-id": "app-developer", "party-uuids": ["c2000000-0000-0000-0000-000000000003"] }
+        ],
+        "props": [
+          { "name": "version", "value": "0.1.0" },
+          { "name": "base-image", "value": "gcr.io/distroless/python3-debian12:nonroot" }
+        ],
+        "control-implementations": [
+          {
+            "uuid": "c4000000-0000-0000-0000-000000000003",
+            "source": "../profiles/medvault-fedramp-moderate.json",
+            "description": "Controls satisfied by the FastAPI application component, per the MedVault tailored FedRAMP Moderate profile.",
+            "implemented-requirements": [
+              {
+                "uuid": "c5000000-0000-0000-0000-000000000201",
+                "control-id": "ac-6",
+                "description": "Runtime least privilege is enforced via the distroless 'nonroot' base image variant, which runs as UID 65532:65532 instead of root. The Dockerfile explicitly sets USER 65532:65532. If a process is compromised, it cannot chown system files, listen on privileged ports, or escalate to root. This complements the IAM-level least privilege implemented by the Terraform component.",
+                "props": [
+                  { "name": "implementation-status", "value": "implemented" }
+                ],
+                "links": [
+                  { "href": "../../app/Dockerfile", "rel": "evidence" }
+                ]
+              },
+              {
+                "uuid": "c5000000-0000-0000-0000-000000000202",
+                "control-id": "au-3",
+                "description": "Audit record content meets AU-3 requirements via a custom JsonFormatter that emits each log event as a structured JSON document. Each record includes: timestamp (ts), severity level, logger name, message, and a request_id correlation ID propagated via Python ContextVar through the middleware. The request_id is set from the X-Request-Id header (or generated if absent) at request start and reset at request end, and is included on every log line emitted during request handling, enabling SIEM correlation across distributed traces.",
+                "props": [
+                  { "name": "implementation-status", "value": "implemented" }
+                ],
+                "links": [
+                  { "href": "../../app/src/main.py", "rel": "evidence" }
+                ]
+              },
+              {
+                "uuid": "c5000000-0000-0000-0000-000000000203",
+                "control-id": "cm-7",
+                "description": "Least functionality is enforced through the distroless base image (gcr.io/distroless/python3-debian12:nonroot), which contains only the Python runtime and required shared libraries. No shell, no apt, no curl, no package manager. Combined with a multi-stage build that discards the builder stage, the final image contains nothing beyond what is needed to run the application. This dramatically reduces the attack surface available to a compromised process.",
+                "props": [
+                  { "name": "implementation-status", "value": "implemented" }
+                ],
+                "links": [
+                  { "href": "../../app/Dockerfile", "rel": "evidence" }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+
+    "back-matter": {
+      "resources": [
+        {
+          "uuid": "c6000000-0000-0000-0000-000000000003",
+          "title": "MedVault Tailored FedRAMP Moderate Profile",
+          "description": "The profile this Component Definition references.",
+          "rlinks": [
+            { "href": "../profiles/medvault-fedramp-moderate.json", "media-type": "application/json" }
+          ]
+        }
+      ]
+    }
+  }
+}
