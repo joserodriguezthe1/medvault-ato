@@ -1,0 +1,132 @@
+{
+  "component-definition": {
+    "uuid": "c1000000-0000-0000-0000-000000000001",
+    "metadata": {
+      "title": "MedVault Terraform/AWS Component Definition",
+      "last-modified": "2026-05-19T00:00:00Z",
+      "version": "0.1.0",
+      "oscal-version": "1.1.2",
+      "roles": [
+        { "id": "cloud-engineer", "title": "Cloud Engineer" },
+        { "id": "isso", "title": "Information System Security Officer" }
+      ],
+      "parties": [
+        {
+          "uuid": "c2000000-0000-0000-0000-000000000001",
+          "type": "person",
+          "name": "Jose Rodriguez",
+          "remarks": "Project author"
+        }
+      ],
+      "responsible-parties": [
+        { "role-id": "cloud-engineer", "party-uuids": ["c2000000-0000-0000-0000-000000000001"] }
+      ],
+      "remarks": "Component Definition for the Terraform-managed AWS infrastructure layer of MedVault. Describes which FedRAMP Moderate controls this component implements and how."
+    },
+
+    "components": [
+      {
+        "uuid": "c3000000-0000-0000-0000-000000000001",
+        "type": "software",
+        "title": "MedVault Terraform/AWS Infrastructure",
+        "description": "Terraform 1.7+ modules deploying AWS resources (S3, KMS, IAM) to host MedVault. Pre-apply policy enforcement via Checkov in CI.",
+        "purpose": "Provide the FedRAMP Moderate-aligned cloud infrastructure substrate for MedVault.",
+        "responsible-roles": [
+          { "role-id": "cloud-engineer", "party-uuids": ["c2000000-0000-0000-0000-000000000001"] }
+        ],
+        "props": [
+          { "name": "version", "value": "0.1.0" }
+        ],
+        "control-implementations": [
+          {
+            "uuid": "c4000000-0000-0000-0000-000000000001",
+            "source": "../profiles/medvault-fedramp-moderate.json",
+            "description": "Controls satisfied by the Terraform/AWS component, per the MedVault tailored FedRAMP Moderate profile.",
+            "implemented-requirements": [
+              {
+                "uuid": "c5000000-0000-0000-0000-000000000001",
+                "control-id": "ac-6",
+                "description": "Least privilege is enforced at the IAM layer. The terraform-medvault IAM user has s3:* and a curated KMS action set, both scoped exclusively to medvault-* resource prefixes. The user cannot enumerate other buckets in the account; this was verified by an intentional AccessDenied on s3:ListAllMyBuckets during build. Policy document: docs/iam-policy.json.",
+                "props": [
+                  { "name": "implementation-status", "value": "implemented" }
+                ],
+                "links": [
+                  { "href": "../../docs/iam-policy.json", "rel": "evidence" }
+                ]
+              },
+              {
+                "uuid": "c5000000-0000-0000-0000-000000000002",
+                "control-id": "au-2",
+                "description": "S3 server access logging is enabled on the medvault-reports-dev bucket, with logs delivered to a separate medvault-access-logs-dev bucket. The separation ensures audit trail integrity even if the primary bucket is compromised. Implemented via aws_s3_bucket_logging resource in infrastructure/s3-bucket.tf.",
+                "props": [
+                  { "name": "implementation-status", "value": "implemented" }
+                ],
+                "links": [
+                  { "href": "../../infrastructure/s3-bucket.tf", "rel": "evidence" }
+                ]
+              },
+              {
+                "uuid": "c5000000-0000-0000-0000-000000000003",
+                "control-id": "cm-6",
+                "description": "Configuration baseline is enforced by Checkov scanning of all Terraform code on every push. The CI workflow (.github/workflows/terraform-scan.yml) blocks merges when Checkov finds violations. Specific configurations enforced: KMS encryption on data buckets (CKV_AWS_19, CKV_AWS_145), public access blocked four ways (CKV_AWS_53-56), TLS-only access policies, versioning, separate logging bucket.",
+                "props": [
+                  { "name": "implementation-status", "value": "implemented" }
+                ],
+                "links": [
+                  { "href": "../../.github/workflows/terraform-scan.yml", "rel": "evidence" }
+                ]
+              },
+              {
+                "uuid": "c5000000-0000-0000-0000-000000000004",
+                "control-id": "sc-13",
+                "description": "Cryptographic protection of data at rest is implemented via AWS KMS customer-managed keys with annual rotation enabled (enable_key_rotation = true). The aws_kms_key.reports resource encrypts the primary data bucket using SSE-KMS with bucket key enabled. Verified via aws s3api get-bucket-encryption returning the customer-managed KMS key ARN. The access logs bucket uses AES256 (S3-managed) intentionally to avoid circular KMS dependency; AES256 is FIPS 140-2 validated. POA&M item POAM-001 tracks the addition of an explicit KMS key policy.",
+                "props": [
+                  { "name": "implementation-status", "value": "partial" }
+                ],
+                "links": [
+                  { "href": "../../infrastructure/s3-bucket.tf", "rel": "evidence" },
+                  { "href": "../poam/medvault-poam.json", "rel": "related" }
+                ]
+              },
+              {
+                "uuid": "c5000000-0000-0000-0000-000000000005",
+                "control-id": "sc-28",
+                "description": "Protection of information at rest is achieved via the same KMS-SSE configuration described in SC-13. All MedVault S3 buckets (reports and access logs) are encrypted by default; no unencrypted data can be stored. Bucket key enabled reduces KMS API calls and cost without weakening protection.",
+                "props": [
+                  { "name": "implementation-status", "value": "implemented" }
+                ],
+                "links": [
+                  { "href": "../../infrastructure/s3-bucket.tf", "rel": "evidence" }
+                ]
+              },
+              {
+                "uuid": "c5000000-0000-0000-0000-000000000006",
+                "control-id": "sc-8",
+                "description": "Transmission confidentiality is enforced by the bucket policy aws_s3_bucket_policy.reports_tls_only, which denies any s3:* action when aws:SecureTransport is false. This forces all access to use TLS, regardless of caller. Combined with AWS's default TLS 1.2+ on S3 endpoints, this provides SC-8 compliance.",
+                "props": [
+                  { "name": "implementation-status", "value": "implemented" }
+                ],
+                "links": [
+                  { "href": "../../infrastructure/s3-bucket.tf", "rel": "evidence" }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+
+    "back-matter": {
+      "resources": [
+        {
+          "uuid": "c6000000-0000-0000-0000-000000000001",
+          "title": "MedVault Tailored FedRAMP Moderate Profile",
+          "description": "The profile this Component Definition references for its implementations.",
+          "rlinks": [
+            { "href": "../profiles/medvault-fedramp-moderate.json", "media-type": "application/json" }
+          ]
+        }
+      ]
+    }
+  }
+}
