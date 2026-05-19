@@ -1,0 +1,172 @@
+{
+  "component-definition": {
+    "uuid": "c1000000-0000-0000-0000-000000000002",
+    "metadata": {
+      "title": "MedVault GitHub Actions CI Component Definition",
+      "last-modified": "2026-05-19T00:00:00Z",
+      "version": "0.1.0",
+      "oscal-version": "1.1.2",
+      "roles": [
+        { "id": "devops-engineer", "title": "DevOps Engineer" },
+        { "id": "isso", "title": "Information System Security Officer" }
+      ],
+      "parties": [
+        {
+          "uuid": "c2000000-0000-0000-0000-000000000002",
+          "type": "person",
+          "name": "Jose Rodriguez",
+          "remarks": "Project author"
+        }
+      ],
+      "responsible-parties": [
+        { "role-id": "devops-engineer", "party-uuids": ["c2000000-0000-0000-0000-000000000002"] }
+      ],
+      "remarks": "Component Definition for the GitHub Actions CI/CD pipeline of MedVault. Covers automated scanning, OSCAL evidence generation, container signing, and continuous monitoring activities."
+    },
+
+    "components": [
+      {
+        "uuid": "c3000000-0000-0000-0000-000000000002",
+        "type": "service",
+        "title": "MedVault GitHub Actions CI Pipeline",
+        "description": "Two GitHub Actions workflows providing automated, continuous compliance enforcement: terraform-scan.yml (Checkov IaC scanning + OSCAL transform) and container-scan.yml (Trivy scanning + Cosign signing + SBOM + OSCAL transform).",
+        "purpose": "Provide automated control assessment, change-control enforcement, vulnerability scanning, and supply-chain provenance for MedVault.",
+        "responsible-roles": [
+          { "role-id": "devops-engineer", "party-uuids": ["c2000000-0000-0000-0000-000000000002"] }
+        ],
+        "props": [
+          { "name": "version", "value": "0.1.0" }
+        ],
+        "control-implementations": [
+          {
+            "uuid": "c4000000-0000-0000-0000-000000000002",
+            "source": "../profiles/medvault-fedramp-moderate.json",
+            "description": "Controls satisfied by the GitHub Actions CI pipeline, per the MedVault tailored FedRAMP Moderate profile.",
+            "implemented-requirements": [
+              {
+                "uuid": "c5000000-0000-0000-0000-000000000101",
+                "control-id": "ca-2",
+                "description": "Control assessments are automatically conducted by the CI pipeline on every push. Scanner output (Checkov SARIF, Trivy SARIF) is transformed into OSCAL Assessment Results documents by scripts/evidence-to-oscal.py and committed back to the repository under oscal/assessment-results/. Each Assessment Results document is timestamped, tagged with the commit SHA, and validates against the OSCAL 1.1.2 schema.",
+                "props": [
+                  { "name": "implementation-status", "value": "implemented" }
+                ],
+                "links": [
+                  { "href": "../../scripts/evidence-to-oscal.py", "rel": "evidence" },
+                  { "href": "../assessment-results/", "rel": "output" }
+                ]
+              },
+              {
+                "uuid": "c5000000-0000-0000-0000-000000000102",
+                "control-id": "ca-7",
+                "description": "Continuous monitoring is implemented as a multi-layer pipeline triggered on every push: (1) the terraform-scan workflow runs Checkov against IaC; (2) the container-scan workflow rebuilds, rescans, re-signs the container image. Both workflows commit fresh OSCAL Assessment Results back to main, providing a continuously-updated audit trail in Git. Frequency matches the rate of system change.",
+                "props": [
+                  { "name": "implementation-status", "value": "implemented" }
+                ],
+                "links": [
+                  { "href": "../../.github/workflows/terraform-scan.yml", "rel": "evidence" },
+                  { "href": "../../.github/workflows/container-scan.yml", "rel": "evidence" }
+                ]
+              },
+              {
+                "uuid": "c5000000-0000-0000-0000-000000000103",
+                "control-id": "cm-3",
+                "description": "Configuration change control is enforced through two layers: (a) every Terraform change must pass Checkov scanning in the terraform-scan workflow, with the workflow exiting non-zero on findings; (b) GitHub branch protection rules on main require passing status checks AND a pull request review. Both layers must be in place for CM-3 enforcement; the workflow alone is policy, branch protection is enforcement.",
+                "props": [
+                  { "name": "implementation-status", "value": "partial" }
+                ],
+                "links": [
+                  { "href": "../../.github/workflows/terraform-scan.yml", "rel": "evidence" }
+                ],
+                "remarks": "Branch protection configuration is enforcement; the workflow alone is not sufficient. Screenshot of branch protection settings to be added as future work."
+              },
+              {
+                "uuid": "c5000000-0000-0000-0000-000000000104",
+                "control-id": "ra-5",
+                "description": "Vulnerability monitoring is performed by two scanners running on every push: Checkov (IaC policy violations) and Trivy (container CVEs). Trivy is configured for CRITICAL/HIGH/MEDIUM severities with ignore-unfixed=true to focus on actionable findings. SARIF output flows to GitHub Security tab for triage. Findings are also transformed into OSCAL Assessment Results for compliance evidence.",
+                "props": [
+                  { "name": "implementation-status", "value": "implemented" }
+                ],
+                "links": [
+                  { "href": "../../.github/workflows/terraform-scan.yml", "rel": "evidence" },
+                  { "href": "../../.github/workflows/container-scan.yml", "rel": "evidence" }
+                ]
+              },
+              {
+                "uuid": "c5000000-0000-0000-0000-000000000105",
+                "control-id": "sa-11",
+                "description": "Developer security testing is integrated into the CI pipeline. Checkov serves as static analysis for infrastructure code; Trivy provides composition analysis for container dependencies. All findings are visible in the GitHub Security tab where developers can triage them directly in pull requests before merge.",
+                "props": [
+                  { "name": "implementation-status", "value": "implemented" }
+                ],
+                "links": [
+                  { "href": "../../.github/workflows/terraform-scan.yml", "rel": "evidence" }
+                ]
+              },
+              {
+                "uuid": "c5000000-0000-0000-0000-000000000106",
+                "control-id": "si-2",
+                "description": "Flaw remediation is gated through the CI pipeline. When Checkov finds violations, the terraform-scan workflow exits non-zero and the final 'Fail the build' step fires. Combined with branch protection (CM-3), this prevents flawed configurations from merging to main. Open findings that cannot be immediately fixed are tracked in the POA&M with severity-based SLA dates.",
+                "props": [
+                  { "name": "implementation-status", "value": "implemented" }
+                ],
+                "links": [
+                  { "href": "../poam/medvault-poam.json", "rel": "related" }
+                ]
+              },
+              {
+                "uuid": "c5000000-0000-0000-0000-000000000107",
+                "control-id": "si-7",
+                "description": "Software integrity is provided by Cosign keyless signing of every container image. The container-scan workflow uses Sigstore's Fulcio CA + Rekor transparency log via GitHub Actions OIDC. The signature is tied to the specific workflow file at the specific commit SHA, and is permanently anchored in the public Rekor log. Anyone can verify with: cosign verify ghcr.io/joserodriguezthe1/medvault-ato/medvault:latest --certificate-identity-regexp ... The signature payload includes Issuer (GitHub Actions OIDC) and Subject (workflow file path + ref), providing strong SR-4 provenance.",
+                "props": [
+                  { "name": "implementation-status", "value": "implemented" }
+                ],
+                "links": [
+                  { "href": "../../.github/workflows/container-scan.yml", "rel": "evidence" },
+                  { "href": "https://search.sigstore.dev/", "rel": "reference" }
+                ]
+              },
+              {
+                "uuid": "c5000000-0000-0000-0000-000000000108",
+                "control-id": "sr-3",
+                "description": "Supply chain controls are implemented via two mechanisms: (a) the Dockerfile pins its base image (python:3.11-slim and gcr.io/distroless/python3-debian12:nonroot); (b) a CycloneDX SBOM is generated by Syft on every push and attached as a signed predicate via cosign attest. Pinning prevents malicious base image swap; the signed SBOM provides verifiable inventory of all packages in the running image.",
+                "props": [
+                  { "name": "implementation-status", "value": "partial" }
+                ],
+                "links": [
+                  { "href": "../../app/Dockerfile", "rel": "evidence" },
+                  { "href": "../../.github/workflows/container-scan.yml", "rel": "evidence" }
+                ],
+                "remarks": "Partial because base images are tag-pinned (3.11-slim) rather than digest-pinned. Future work: pin to SHA256 digests."
+              },
+              {
+                "uuid": "c5000000-0000-0000-0000-000000000109",
+                "control-id": "sr-4",
+                "description": "Provenance is established via Cosign keyless signing. Each signing event is published to Sigstore's Rekor public transparency log, where it can be independently verified by any party. The certificate identity binds the signature to the GitHub Actions workflow that produced the image, providing cryptographic proof of build provenance. This is a stronger SR-4 claim than traditional signing-key approaches.",
+                "props": [
+                  { "name": "implementation-status", "value": "implemented" }
+                ],
+                "links": [
+                  { "href": "../../.github/workflows/container-scan.yml", "rel": "evidence" },
+                  { "href": "https://search.sigstore.dev/", "rel": "reference" }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+
+    "back-matter": {
+      "resources": [
+        {
+          "uuid": "c6000000-0000-0000-0000-000000000002",
+          "title": "MedVault Tailored FedRAMP Moderate Profile",
+          "description": "The profile this Component Definition references.",
+          "rlinks": [
+            { "href": "../profiles/medvault-fedramp-moderate.json", "media-type": "application/json" }
+          ]
+        }
+      ]
+    }
+  }
+}
