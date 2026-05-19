@@ -1,0 +1,117 @@
+{
+  "profile": {
+    "uuid": "p1000000-0000-0000-0000-000000000001",
+    "metadata": {
+      "title": "MedVault Tailored FedRAMP Moderate Profile",
+      "last-modified": "2026-05-19T00:00:00Z",
+      "version": "0.1.0",
+      "oscal-version": "1.1.2",
+      "roles": [
+        {
+          "id": "system-owner",
+          "title": "System Owner",
+          "description": "The federal official accountable for the system."
+        },
+        {
+          "id": "isso",
+          "title": "Information System Security Officer",
+          "description": "Responsible for day-to-day security operations."
+        },
+        {
+          "id": "ao",
+          "title": "Authorizing Official",
+          "description": "Federal official with authority to grant or deny ATO."
+        }
+      ],
+      "parties": [
+        {
+          "uuid": "p2000000-0000-0000-0000-000000000001",
+          "type": "organization",
+          "name": "MedVault Program Office (fictional)",
+          "short-name": "MVPO",
+          "remarks": "Fictional federal civilian program office for portfolio demonstration."
+        },
+        {
+          "uuid": "p2000000-0000-0000-0000-000000000002",
+          "type": "person",
+          "name": "Jane Doe (fictional)",
+          "short-name": "ISSO"
+        }
+      ],
+      "responsible-parties": [
+        {
+          "role-id": "system-owner",
+          "party-uuids": ["p2000000-0000-0000-0000-000000000001"]
+        },
+        {
+          "role-id": "isso",
+          "party-uuids": ["p2000000-0000-0000-0000-000000000002"]
+        }
+      ],
+      "remarks": "Portfolio demonstration artifact. No real federal system or authorization is represented."
+    },
+
+    "imports": [
+      {
+        "href": "#fedramp-moderate-baseline",
+        "include-all": {}
+      }
+    ],
+
+    "modify": {
+      "set-parameters": [
+        {
+          "param-id": "ac-2_prm_3",
+          "values": ["45 days"],
+          "remarks": "AC-2(3) inactive accounts disabled after 45 days per FedRAMP Moderate; no agency adjustment."
+        },
+        {
+          "param-id": "ac-7_prm_1",
+          "values": ["3"],
+          "remarks": "AC-7 maximum invalid logon attempts before lockout."
+        },
+        {
+          "param-id": "ac-7_prm_2",
+          "values": ["15 minutes"],
+          "remarks": "AC-7 lockout duration."
+        },
+        {
+          "param-id": "au-11_prm_1",
+          "values": ["1 year online, 6 years offline"],
+          "remarks": "AU-11 audit log retention. Online retention supports CA-7 ConMon dashboard; offline retention via S3 Glacier Deep Archive."
+        },
+        {
+          "param-id": "ia-5_prm_1",
+          "values": ["12"],
+          "remarks": "IA-5(1) minimum password length aligned to FedRAMP Moderate requirement."
+        }
+      ]
+    },
+
+    "back-matter": {
+      "resources": [
+        {
+          "uuid": "fedramp-moderate-baseline",
+          "title": "FedRAMP Rev 5 Moderate Baseline (Source)",
+          "description": "The FedRAMP Moderate baseline profile imported and tailored by this document.",
+          "rlinks": [
+            {
+              "href": "https://github.com/GSA/fedramp-automation/blob/master/dist/content/rev5/baselines/json/FedRAMP_rev5_MODERATE-baseline_profile.json",
+              "media-type": "application/json"
+            }
+          ]
+        },
+        {
+          "uuid": "r2000000-0000-0000-0000-000000000002",
+          "title": "NIST SP 800-53 Rev 5 Catalog (Reference)",
+          "description": "The underlying control catalog from which FedRAMP Moderate is derived.",
+          "rlinks": [
+            {
+              "href": "https://csrc.nist.gov/Projects/risk-management/sp800-53-controls"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
