@@ -166,24 +166,46 @@ In addition to the auto-generated Assessment Results and hand-authored POA&M fro
 
 All six documents reference each other via stable UUIDs:
 
-Profile
-^
-| imports
-|
-Component Definitions -----+
-|  terraform-aws.json         |
-|  github-actions-ci.json     |
-|  fastapi-app.json           |
-v                             |
-SSP ------------------+    |
-|  control claims        |    |
-|  by-component refs ----+----+
-|  system boundary
-v
-Assessment Results (per CI run, auto-generated)
-|
-v
-POA&M (hand-authored, links findings to remediation)
+```text
+                +------------------+
+                |     Profile      |
+                +------------------+
+                         ^
+                         | imports
+                         |
+        +--------------------------------------+
+        |      Component Definitions           |
+        |--------------------------------------|
+        | terraform-aws.json                   |
+        | github-actions-ci.json               |
+        | fastapi-app.json                     |
+        +--------------------------------------+
+                         |
+                         v
+                +------------------+
+                |       SSP        |
+                |------------------|
+                | control claims   |
+                | by-component refs|
+                | system boundary  |
+                +------------------+
+                         |
+                         v
+        +--------------------------------------+
+        | Assessment Results                   |
+        |--------------------------------------|
+        | per CI run                           |
+        | auto-generated                       |
+        +--------------------------------------+
+                         |
+                         v
+                +------------------+
+                |      POA&M       |
+                |------------------|
+                | findings linked  |
+                | to remediation   |
+                +------------------+
+```
 
 A tool consuming this hierarchy can answer queries like *"which component satisfies AC-6?"* (two: Terraform via IAM, FastAPI app via non-root container) or *"what's the implementation status of SC-13?"* (partial - documented gap in POAM-001).
 
