@@ -166,16 +166,16 @@ In addition to the auto-generated Assessment Results and hand-authored POA&M fro
 
 All six documents reference each other via stable UUIDs:
 
-Profile (12a)
+Profile
 ^
 | imports
 |
-Component Definitions (12b) -----+
+Component Definitions -----+
 |  terraform-aws.json         |
 |  github-actions-ci.json     |
 |  fastapi-app.json           |
 v                             |
-SSP (12c) ------------------+    |
+SSP ------------------+    |
 |  control claims        |    |
 |  by-component refs ----+----+
 |  system boundary
