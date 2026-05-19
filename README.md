@@ -148,7 +148,7 @@ Returns the signature, the Fulcio certificate, and the Rekor transparency log en
 
 ---
 
-## Phase 12 - Full OSCAL Document Family
+## Full OSCAL Document Family
 
 In addition to the auto-generated Assessment Results and hand-authored POA&M from earlier phases, the ``oscal/`` directory now contains the complete OSCAL document family that a real ATO package requires.
 
