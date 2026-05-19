@@ -146,6 +146,63 @@ Returns the signature, the Fulcio certificate, and the Rekor transparency log en
 
 ---
 
+---
+
+## Phase 12 - Full OSCAL Document Family
+
+In addition to the auto-generated Assessment Results and hand-authored POA&M from earlier phases, the ``oscal/`` directory now contains the complete OSCAL document family that a real ATO package requires.
+
+### What's new
+
+| Document | Path | What it says |
+|---|---|---|
+| **Profile** | [oscal/profiles/medvault-fedramp-moderate.json](oscal/profiles/medvault-fedramp-moderate.json) | Tailored FedRAMP Moderate baseline. Imports the FedRAMP profile and sets 5 organization-defined parameters (lockout thresholds, password length, audit retention, etc.). |
+| **Component Definition: Terraform/AWS** | [oscal/component-definitions/terraform-aws.json](oscal/component-definitions/terraform-aws.json) | Implementation claims for 6 controls (AC-6, AU-2, CM-6, SC-13, SC-28, SC-8) covering the AWS infrastructure layer. |
+| **Component Definition: GitHub Actions** | [oscal/component-definitions/github-actions-ci.json](oscal/component-definitions/github-actions-ci.json) | Implementation claims for 9 controls (CA-2, CA-7, CM-3, RA-5, SA-11, SI-2, SI-7, SR-3, SR-4) covering the CI/CD pipeline. |
+| **Component Definition: FastAPI App** | [oscal/component-definitions/fastapi-app.json](oscal/component-definitions/fastapi-app.json) | Implementation claims for 3 controls (AC-6, AU-3, CM-7) covering the application and container. |
+| **System Security Plan** | [oscal/ssp/medvault-ssp.json](oscal/ssp/medvault-ssp.json) | Canonical SSP combining profile, components, system boundary, and 13 control implementations with multi-component aggregation where applicable. |
+
+### The OSCAL graph
+
+All six documents reference each other via stable UUIDs:
+
+Profile (12a)
+^
+| imports
+|
+Component Definitions (12b) -----+
+|  terraform-aws.json         |
+|  github-actions-ci.json     |
+|  fastapi-app.json           |
+v                             |
+SSP (12c) ------------------+    |
+|  control claims        |    |
+|  by-component refs ----+----+
+|  system boundary
+v
+Assessment Results (per CI run, auto-generated)
+|
+v
+POA&M (hand-authored, links findings to remediation)
+
+A tool consuming this hierarchy can answer queries like *"which component satisfies AC-6?"* (two: Terraform via IAM, FastAPI app via non-root container) or *"what's the implementation status of SC-13?"* (partial - documented gap in POAM-001).
+
+### Honest gaps
+
+Implementation statuses are honest, not aspirational:
+
+- **CM-3 marked partial** - workflow gate exists, but branch protection screenshot evidence pending
+- **SC-13 marked partial** - documented in POAM-001 (no explicit KMS key policy)
+- **SR-3 marked partial** - base image is tag-pinned, not yet digest-pinned
+
+Real SSPs would cover all 325 FedRAMP Moderate controls; mine covers the 13 actively implemented by this portfolio. The remaining controls would be inherited from AWS or marked planned in a production SSP.
+
+### Why this matters
+
+Most "GRC portfolios" produce Word documents or markdown control matrices. This repository produces **machine-readable, schema-valid OSCAL 1.1.2 documents** that real federal compliance tooling (compliance-trestle, OSCAL CLI, FedRAMP automation pipelines) can ingest directly.
+
+For an interviewer: *"This isn't a description of an OSCAL workflow. It's an OSCAL workflow."*
+
 ## Author
 
 Built by **Jose Rodriguez** as a GRC engineering portfolio project.
